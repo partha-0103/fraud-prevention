@@ -9,8 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gadget-client/test-fraud-app": "^1.10.0",
+    "@gadgetinc/react": "^0.7.1",
+    "@gadgetinc/react-shopify-app-bridge": "^0.3.0",
+    "@shopify/app-bridge-react": "^2.2.0",
     "next": "12.2.5",
-    "react": "18.2.0",
+    "react": "^18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
