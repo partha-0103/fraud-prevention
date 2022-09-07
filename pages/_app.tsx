@@ -23,12 +23,12 @@ function AppContainer({ Component, pageProps }: AppProps) {
       Wrap the application in the Shopify Polaris app provider, which makes Polaris components like Button and Card work.
       Learn more about Polaris at https://www.npmjs.com/package/@shopify/polaris
       */}
-      {/* <AppProvider i18n={enTranslations}>
+      {/* @ts-ignore */}
+      <AppProvider i18n={enTranslations}>
         <Page fullWidth>
           <Component {...pageProps} />
         </Page>
-      </AppProvider> */}
-      <div>Hello</div>
+      </AppProvider>
     </GadgetProvider>
   );
 }
