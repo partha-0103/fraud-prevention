@@ -1,71 +1,66 @@
+// import Gadget's react hooks for accessing data from your Gadget app
+import { useAction, useFindMany } from "@gadgetinc/react";
+// import the Gadget<->Shopify bindings that manage the auth process with Shopify
+import { useGadget } from "@gadgetinc/react-shopify-app-bridge";
+// import and use Shopify's react components like you might in other Shopify app
+import {
+  Button as ButtonAction,
+  Redirect,
+  TitleBar,
+} from "@shopify/app-bridge/actions";
+import { Button, Card, Layout, Spinner } from "@shopify/polaris";
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import React from "react";
+// import the instance of the Gadget API client for this app constructed in the other file
+import { api } from "../src/api";
 
 const Home: NextPage = () => {
+  const { loading, appBridge } = useGadget();
+  const [, deleteCustomer] = useAction(api.shopifyCustomer.delete);
+  const [{ data, fetching, error }, refresh] = useFindMany(api.shopifyCustomer);
+  // Loading or app bridge has not been set up yet
+  if (loading || !appBridge) {
+    return <Spinner />;
+  }
+
+  if (error) return <>Error: {error.toString()}</>;
+  if (fetching) return <>Fetching...</>;
+  if (!data) return <>No products found</>;
+
+  // Set up a title bar for my embedded app
+  const breadcrumb = ButtonAction.create(appBridge, { label: "My breadcrumb" });
+  breadcrumb.subscribe(ButtonAction.Action.CLICK, () => {
+    appBridge.dispatch(Redirect.toApp({ path: "/breadcrumb-link" }));
+  });
+
+  const titleBarOptions = {
+    title: "My page title",
+    breadcrumbs: breadcrumb,
+  };
+  TitleBar.create(appBridge, titleBarOptions);
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <meta name="description" content="Hey!!!" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
-    </div>
+    <Layout>
+      <Layout.Section>
+        {loading && <span>Loading...</span>}
+        {!loading &&
+          data.map((customer) => (
+            <Card key={customer.id}>
+              {customer.firstName} {customer.lastName}
+              <Button
+                onClick={() => {
+                  void deleteCustomer({ id: customer.id }).then(() =>
+                    refresh()
+                  );
+                }}
+              >
+                Delete {customer.firstName!}
+              </Button>
+            </Card>
+          ))}
+        {!loading && data.length == 0 && <Card>No customers found</Card>}
+      </Layout.Section>
+    </Layout>
   );
 };
 
