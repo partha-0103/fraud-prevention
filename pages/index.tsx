@@ -36,7 +36,7 @@ const Home: NextPage = () => {
       businessName,
       businessWebsite,
     };
-    console.log({ data });
+    console.log(data);
   }, []);
 
   const handleNameChange = useCallback((value: string) => setName(value), []);
