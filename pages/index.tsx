@@ -47,18 +47,17 @@ const Home: NextPage = () => {
       ],
     };
     axios({
-      url: "https://bfp.dev.bureau.id/topics/json-test",
-      method: "POST",
+      url: "https://bfp.stg.bureau.id/topics/shopify-merchant-onboard",
       headers: {
         "Content-Type": "application/vnd.kafka.json.v2+json",
-        "x-api-key": "h6UpJHaRGc9NcTK8qQnsAvXDCPFqhpi3gJOUCgAc",
+        "x-api-key": "XKrvMkvkHeaWBcGRCa24CxdJXV2Gh6B6oDyfq6mj",
       },
+      method: "POST",
       data: JSON.stringify(recordObject),
     })
-      .then((data) => {})
-      .catch((e) => console.log(e.response, "error"));
+      .then(({ data }) => console.log(data, "success"))
+      .catch((e) => console.log(e, "error"));
   };
-  console.log(api.shopifyCustomer);
 
   const handleNameChange = useCallback((value: string) => setName(value), []);
   const handleEmailChange = useCallback((value: string) => setEmail(value), []);
