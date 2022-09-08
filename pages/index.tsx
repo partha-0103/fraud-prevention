@@ -31,7 +31,7 @@ const Home: NextPage = () => {
   const [phone, setPhone] = useState("");
   const [businessName, setBusinessName] = useState("");
   const [businessWebsite, setBusinessWebsite] = useState("");
-  const handleSubmit = useCallback(() => {
+  const handleSubmit = () => {
     const data = {
       name,
       email,
@@ -51,7 +51,7 @@ const Home: NextPage = () => {
     })
       .then(({ data }) => console.log(data, "success"))
       .catch((e) => console.log(e, "error"));
-  }, []);
+  };
   console.log(api.shopifyCustomer);
 
   const handleNameChange = useCallback((value: string) => setName(value), []);
