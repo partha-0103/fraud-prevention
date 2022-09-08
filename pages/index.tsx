@@ -39,17 +39,15 @@ const Home: NextPage = () => {
       businessName,
       businessWebsite,
     };
-    axios
-      .post(
-        "https://bfp.stg.bureau.id/topics/shopify-merchant-onboard",
-        JSON.stringify(data),
-        {
-          headers: {
-            "Content-Type": "application/vnd.kafka.json.v2+json",
-            "x-api-key": "XKrvMkvkHeaWBcGRCa24CxdJXV2Gh6B6oDyfq6mj",
-          },
-        }
-      )
+
+    axios({
+      url: "https://bfp.stg.bureau.id/topics/shopify-merchant-onboard",
+      headers: {
+        "Content-Type": "application/vnd.kafka.json.v2+json",
+        "x-api-key": "XKrvMkvkHeaWBcGRCa24CxdJXV2Gh6B6oDyfq6mj",
+      },
+      data: JSON.stringify(data),
+    })
       .then(({ data }) => console.log(data, "success"))
       .catch((e) => console.log(e, "error"));
   }, []);
