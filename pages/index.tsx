@@ -46,6 +46,7 @@ const Home: NextPage = () => {
         "Content-Type": "application/vnd.kafka.json.v2+json",
         "x-api-key": "XKrvMkvkHeaWBcGRCa24CxdJXV2Gh6B6oDyfq6mj",
       },
+      method: "POST",
       data: JSON.stringify(data),
     })
       .then(({ data }) => console.log(data, "success"))
