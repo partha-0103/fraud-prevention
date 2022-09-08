@@ -31,7 +31,7 @@ const Home: NextPage = () => {
   const [phone, setPhone] = useState("");
   const [businessName, setBusinessName] = useState("");
   const [businessWebsite, setBusinessWebsite] = useState("");
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     const data = {
       name,
       email,
@@ -46,7 +46,7 @@ const Home: NextPage = () => {
         },
       ],
     };
-    await axios({
+    axios({
       url: "https://bfp.dev.bureau.id/topics/json-test",
       method: "POST",
       headers: {
@@ -54,7 +54,9 @@ const Home: NextPage = () => {
         "x-api-key": "h6UpJHaRGc9NcTK8qQnsAvXDCPFqhpi3gJOUCgAc",
       },
       data: JSON.stringify(recordObject),
-    });
+    })
+      .then((data) => {})
+      .catch((e) => console.log(e.response, "error"));
   };
   console.log(api.shopifyCustomer);
 
