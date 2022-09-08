@@ -38,7 +38,7 @@ const Home: NextPage = () => {
     };
     console.log(data);
   }, []);
-
+  console.log(api.shopifyCustomer);
   const handleNameChange = useCallback((value: string) => setName(value), []);
   const handleEmailChange = useCallback((value: string) => setEmail(value), []);
   const handlePhoneChange = useCallback((value: string) => setPhone(value), []);
