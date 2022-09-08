@@ -31,7 +31,7 @@ const Home: NextPage = () => {
   const [phone, setPhone] = useState("");
   const [businessName, setBusinessName] = useState("");
   const [businessWebsite, setBusinessWebsite] = useState("");
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const data = {
       name,
       email,
@@ -46,17 +46,15 @@ const Home: NextPage = () => {
         },
       ],
     };
-    axios({
-      url: "https://bfp.stg.bureau.id/topics/shopify-merchant-onboard",
+    await axios({
+      url: "https://bfp.dev.bureau.id/topics/json-test",
+      method: "POST",
       headers: {
         "Content-Type": "application/vnd.kafka.json.v2+json",
-        "x-api-key": "XKrvMkvkHeaWBcGRCa24CxdJXV2Gh6B6oDyfq6mj",
+        "x-api-key": "h6UpJHaRGc9NcTK8qQnsAvXDCPFqhpi3gJOUCgAc",
       },
-      method: "POST",
       data: JSON.stringify(recordObject),
-    })
-      .then(({ data }) => console.log(data, "success"))
-      .catch((e) => console.log(e, "error"));
+    });
   };
   console.log(api.shopifyCustomer);
 
