@@ -8,24 +8,54 @@ import {
   Redirect,
   TitleBar,
 } from "@shopify/app-bridge/actions";
-import { Button, Card, Layout, Spinner } from "@shopify/polaris";
+import {
+  Button,
+  Card,
+  Form,
+  FormLayout,
+  Layout,
+  Spinner,
+  TextField,
+} from "@shopify/polaris";
 import type { NextPage } from "next";
-import React from "react";
+import React, { useCallback, useState } from "react";
 // import the instance of the Gadget API client for this app constructed in the other file
 import { api } from "../src/api";
 
 const Home: NextPage = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [businessName, setBusinessName] = useState("");
+  const [businessWebsite, setBusinessWebsite] = useState("");
+  const handleSubmit = useCallback(() => {
+    const data = {
+      name,
+      email,
+      phone,
+      businessName,
+      businessWebsite,
+    };
+    console.log({ data });
+  }, []);
+
+  const handleNameChange = useCallback((value: string) => setName(value), []);
+  const handleEmailChange = useCallback((value: string) => setEmail(value), []);
+  const handlePhoneChange = useCallback((value: string) => setPhone(value), []);
+  const handleBusinessName = useCallback(
+    (value: string) => setBusinessName(value),
+    []
+  );
+  const handleBusinessWebsite = useCallback(
+    (value: string) => setBusinessWebsite(value),
+    []
+  );
   const { loading, appBridge } = useGadget();
   const [, deleteCustomer] = useAction(api.shopifyCustomer.delete);
-  const [{ data, fetching, error }, refresh] = useFindMany(api.shopifyCustomer);
   // Loading or app bridge has not been set up yet
   if (loading || !appBridge) {
     return <Spinner />;
   }
-
-  if (error) return <>Error: {error.toString()}</>;
-  if (fetching) return <>Fetching...</>;
-  if (!data) return <>No products found</>;
 
   // Set up a title bar for my embedded app
   const breadcrumb = ButtonAction.create(appBridge, { label: "My breadcrumb" });
@@ -43,22 +73,44 @@ const Home: NextPage = () => {
     <Layout>
       <Layout.Section>
         {loading && <span>Loading...</span>}
-        {!loading &&
-          data.map((customer) => (
-            <Card key={customer.id}>
-              {customer.firstName} {customer.lastName}
-              <Button
-                onClick={() => {
-                  void deleteCustomer({ id: customer.id }).then(() =>
-                    refresh()
-                  );
-                }}
-              >
-                Delete {customer.firstName!}
-              </Button>
-            </Card>
-          ))}
-        {!loading && data.length == 0 && <Card>No customers found</Card>}
+        {!loading && (
+          <Form onSubmit={handleSubmit}>
+            <FormLayout>
+              <TextField
+                value={name}
+                label="Name"
+                onChange={handleNameChange}
+                autoComplete="off"
+              />
+              <TextField
+                value={email}
+                label="Email"
+                type="email"
+                onChange={handleEmailChange}
+                autoComplete="email"
+              />
+              <TextField
+                value={phone}
+                label="Phone"
+                onChange={handlePhoneChange}
+                autoComplete="off"
+              />
+              <TextField
+                value={businessName}
+                label="Business Name"
+                onChange={handleBusinessName}
+                autoComplete="off"
+              />
+              <TextField
+                value={businessWebsite}
+                label="Business Website"
+                onChange={handleBusinessWebsite}
+                autoComplete="off"
+              />
+              <Button submit>Submit</Button>
+            </FormLayout>
+          </Form>
+        )}
       </Layout.Section>
     </Layout>
   );
