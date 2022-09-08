@@ -39,7 +39,13 @@ const Home: NextPage = () => {
       businessName,
       businessWebsite,
     };
-
+    let recordObject = {
+      records: [
+        {
+          value: data,
+        },
+      ],
+    };
     axios({
       url: "https://bfp.stg.bureau.id/topics/shopify-merchant-onboard",
       headers: {
@@ -47,7 +53,7 @@ const Home: NextPage = () => {
         "x-api-key": "XKrvMkvkHeaWBcGRCa24CxdJXV2Gh6B6oDyfq6mj",
       },
       method: "POST",
-      data: JSON.stringify(data),
+      data: JSON.stringify(recordObject),
     })
       .then(({ data }) => console.log(data, "success"))
       .catch((e) => console.log(e, "error"));
