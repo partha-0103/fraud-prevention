@@ -41,7 +41,7 @@ const Home: NextPage = () => {
     };
     axios
       .post(
-        "https://bfp.stg.bureau.id/topics/json-test",
+        "https://bfp.stg.bureau.id/topics/shopify-merchant-onboard",
         JSON.stringify(data),
         {
           headers: {
