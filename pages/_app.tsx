@@ -3,6 +3,8 @@ import {
   Provider as GadgetProvider,
 } from "@gadgetinc/react-shopify-app-bridge";
 import { AppProvider, Page } from "@shopify/polaris";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "@shopify/polaris/build/esm/styles.css";
 import enTranslations from "@shopify/polaris/locales/en.json";
 import type { AppProps } from "next/app";
@@ -11,25 +13,28 @@ import { api } from "../src/api";
 import "../styles/globals.css";
 
 function AppContainer({ Component, pageProps }: AppProps) {
+  const queryClient = new QueryClient();
   return (
     // wrap the application in the Gadget provider, which manages OAuthing with Shopify, creating a session with the Gadget backend, and creating an instance of the Shopify App Bridge
     // learn more at https://www.npmjs.com/package/@gadgetinc/react-shopify-app-bridge
-    <GadgetProvider
-      type={AppType.Embedded}
-      shopifyApiKey={process.env.NEXT_PUBLIC_SHOPIFY_API_KEY!}
-      api={api}
-    >
-      {/* 
+    <QueryClientProvider client={queryClient}>
+      <GadgetProvider
+        type={AppType.Embedded}
+        shopifyApiKey={process.env.NEXT_PUBLIC_SHOPIFY_API_KEY!}
+        api={api}
+      >
+        {/* 
       Wrap the application in the Shopify Polaris app provider, which makes Polaris components like Button and Card work.
       Learn more about Polaris at https://www.npmjs.com/package/@shopify/polaris
       */}
-      {/* @ts-ignore */}
-      <AppProvider i18n={enTranslations}>
-        <Page fullWidth>
-          <Component {...pageProps} />
-        </Page>
-      </AppProvider>
-    </GadgetProvider>
+        {/* @ts-ignore */}
+        <AppProvider i18n={enTranslations}>
+          <Page fullWidth>
+            <Component {...pageProps} />
+          </Page>
+        </AppProvider>
+      </GadgetProvider>
+    </QueryClientProvider>
   );
 }
 

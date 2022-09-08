@@ -17,8 +17,11 @@ import {
   Spinner,
   TextField,
 } from "@shopify/polaris";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 import type { NextPage } from "next";
 import React, { useCallback, useState } from "react";
+import { json } from "stream/consumers";
 // import the instance of the Gadget API client for this app constructed in the other file
 import { api } from "../src/api";
 
@@ -36,9 +39,22 @@ const Home: NextPage = () => {
       businessName,
       businessWebsite,
     };
-    console.log(data);
+    axios
+      .post(
+        "https://bfp.stg.bureau.id/topics/json-test",
+        JSON.stringify(data),
+        {
+          headers: {
+            "Content-Type": "application/vnd.kafka.json.v2+json",
+            "x-api-key": "XKrvMkvkHeaWBcGRCa24CxdJXV2Gh6B6oDyfq6mj",
+          },
+        }
+      )
+      .then(({ data }) => console.log(data, "success"))
+      .catch((e) => console.log(e, "error"));
   }, []);
   console.log(api.shopifyCustomer);
+
   const handleNameChange = useCallback((value: string) => setName(value), []);
   const handleEmailChange = useCallback((value: string) => setEmail(value), []);
   const handlePhoneChange = useCallback((value: string) => setPhone(value), []);
