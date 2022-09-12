@@ -32,10 +32,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@gadget-client/fraud-fe@^1.10.0":
-  version "1.10.0"
-  resolved "https://registry.gadget.dev/npm/_/tarball/3661/6114/1457"
-  integrity sha1-pk23DCY5aJe8ZE0UuO966qgI3Aw=
+"@gadget-client/fraud-fe@^1.74.0":
+  version "1.74.0"
+  resolved "https://registry.gadget.dev/npm/_/tarball/3661/6114/1506#a35892e34a5ed2ae12440f9eb768c501e9ee2dfb"
+  integrity sha1-o1iS40pe0q4SRA+et2jFAenuLfs=
   dependencies:
     "@gadgetinc/api-client-core" "0.9.0"
 
@@ -75,7 +75,7 @@
 
 "@gadgetinc/react@^0.7.1":
   version "0.7.1"
-  resolved "https://registry.npmjs.org/@gadgetinc/react/-/react-0.7.1.tgz"
+  resolved "https://registry.yarnpkg.com/@gadgetinc/react/-/react-0.7.1.tgz#01a363be9014813c775f2e539fc957adffc65717"
   integrity sha512-cYB0kRpbHrygW0tVsKjTEZnBF+q7W7PSN2913Iuh162Ac7iu61yHaJupCFhwM/CCWXVHVrhAcRlKeHF0XFmbmw==
   dependencies:
     "@gadgetinc/api-client-core" "^0.9.0"

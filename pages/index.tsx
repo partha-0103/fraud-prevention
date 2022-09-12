@@ -1,4 +1,5 @@
 // import Gadget's react hooks for accessing data from your Gadget app
+import { Scalars } from "@gadget-client/fraud-fe";
 import { useAction, useFindMany } from "@gadgetinc/react";
 // import the Gadget<->Shopify bindings that manage the auth process with Shopify
 import { useGadget } from "@gadgetinc/react-shopify-app-bridge";
@@ -25,12 +26,29 @@ import { json } from "stream/consumers";
 // import the instance of the Gadget API client for this app constructed in the other file
 import { api } from "../src/api";
 
+export interface CreateCustomerDetailsInput {
+  name?: (Scalars["String"] | null) | null;
+
+  email?: (Scalars["String"] | null) | null;
+
+  phone?: (Scalars["String"] | null) | null;
+
+  businessname?: (Scalars["String"] | null) | null;
+
+  businessurl?: (Scalars["String"] | null) | null;
+}
+
+export interface CreateCustomerDetailsArguments {
+  customerDetails?: CreateCustomerDetailsInput | null;
+}
+
 const Home: NextPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [businessName, setBusinessName] = useState("");
   const [businessWebsite, setBusinessWebsite] = useState("");
+
   const handleSubmit = () => {
     const data = {
       name,
@@ -46,17 +64,21 @@ const Home: NextPage = () => {
         },
       ],
     };
-    axios({
-      url: "https://bfp.stg.bureau.id/topics/shopify-merchant-onboard",
-      headers: {
-        "Content-Type": "application/vnd.kafka.json.v2+json",
-        "x-api-key": "XKrvMkvkHeaWBcGRCa24CxdJXV2Gh6B6oDyfq6mj",
-      },
-      method: "POST",
-      data: JSON.stringify(recordObject),
-    })
-      .then(({ data }) => console.log(data, "success"))
-      .catch((e) => console.log(e, "error"));
+    api.customerDetails
+      .findFirst()
+      .then((data) => console.log(data))
+      .catch((e) => console.log(e));
+    // axios({
+    //   url: "https://bfp.stg.bureau.id/topics/shopify-merchant-onboard",
+    //   headers: {
+    //     "Content-Type": "application/vnd.kafka.json.v2+json",
+    //     "x-api-key": "XKrvMkvkHeaWBcGRCa24CxdJXV2Gh6B6oDyfq6mj",
+    //   },
+    //   method: "POST",
+    //   data: JSON.stringify(recordObject),
+    // })
+    //   .then(({ data }) => console.log(data, "success"))
+    //   .catch((e) => console.log(e, "error"));
   };
 
   const handleNameChange = useCallback((value: string) => setName(value), []);
