@@ -21,7 +21,7 @@ import {
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import type { NextPage } from "next";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { json } from "stream/consumers";
 // import the instance of the Gadget API client for this app constructed in the other file
 import { api } from "../src/api";
@@ -48,6 +48,14 @@ const Home: NextPage = () => {
   const [phone, setPhone] = useState("");
   const [businessName, setBusinessName] = useState("");
   const [businessWebsite, setBusinessWebsite] = useState("");
+
+  useEffect(() => {
+    api.customerDetails
+      .findFirst()
+      .then((data) => console.log(data))
+      .catch((e) => console.log(e));
+    // console.log(api);
+  }, []);
 
   const handleSubmit = () => {
     const data = {
