@@ -50,11 +50,16 @@ const Home: NextPage = () => {
   const [businessWebsite, setBusinessWebsite] = useState("");
 
   useEffect(() => {
-    api.customerDetails
+    // api.customerDetails
+    //   .findFirst()
+    //   .then((data) => console.log(data))
+    //   .catch((e) => console.log(e));
+    // console.log(api);
+    api.shopifyCustomer
       .findFirst()
       .then((data) => console.log(data))
       .catch((e) => console.log(e));
-    // console.log(api);
+    //   .catch((e) => console.log(e));
   }, []);
 
   const handleSubmit = () => {
@@ -73,7 +78,11 @@ const Home: NextPage = () => {
       ],
     };
 
-    api.customerDetails
+    // api.customerDetails
+    //   .findFirst()
+    //   .then((data) => console.log(data))
+    //   .catch((e) => console.log(e));
+    api.shopifyCustomer
       .findFirst()
       .then((data) => console.log(data))
       .catch((e) => console.log(e));
