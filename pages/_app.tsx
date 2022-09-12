@@ -14,6 +14,7 @@ import "../styles/globals.css";
 
 function AppContainer({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
+  console.log(process.env.NEXT_PUBLIC_SHOPIFY_API_KEY);
   return (
     // wrap the application in the Gadget provider, which manages OAuthing with Shopify, creating a session with the Gadget backend, and creating an instance of the Shopify App Bridge
     // learn more at https://www.npmjs.com/package/@gadgetinc/react-shopify-app-bridge

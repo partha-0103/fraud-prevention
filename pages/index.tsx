@@ -64,6 +64,7 @@ const Home: NextPage = () => {
         },
       ],
     };
+
     api.customerDetails
       .findFirst()
       .then((data) => console.log(data))
