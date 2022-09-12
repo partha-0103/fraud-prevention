@@ -50,15 +50,15 @@ const Home: NextPage = () => {
   const [businessWebsite, setBusinessWebsite] = useState("");
 
   useEffect(() => {
-    // api.customerDetails
-    //   .findFirst()
-    //   .then((data) => console.log(data))
-    //   .catch((e) => console.log(e));
-    // console.log(api);
-    api.shopifyCustomer
+    api.customerDetails
       .findFirst()
       .then((data) => console.log(data))
       .catch((e) => console.log(e));
+    // console.log(api);
+    // api.shopifyCustomer
+    //   .findFirst()
+    //   .then((data) => console.log(data))
+    //   .catch((e) => console.log(e));
     //   .catch((e) => console.log(e));
   }, []);
 
@@ -78,14 +78,14 @@ const Home: NextPage = () => {
       ],
     };
 
-    // api.customerDetails
-    //   .findFirst()
-    //   .then((data) => console.log(data))
-    //   .catch((e) => console.log(e));
-    api.shopifyCustomer
+    api.customerDetails
       .findFirst()
       .then((data) => console.log(data))
       .catch((e) => console.log(e));
+    // api.shopifyCustomer
+    //   .findFirst()
+    //   .then((data) => console.log(data))
+    //   .catch((e) => console.log(e));
     // axios({
     //   url: "https://bfp.stg.bureau.id/topics/shopify-merchant-onboard",
     //   headers: {
