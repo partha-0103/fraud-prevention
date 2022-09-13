@@ -50,10 +50,10 @@ const Home: NextPage = () => {
   const [businessWebsite, setBusinessWebsite] = useState("");
 
   useEffect(() => {
-    api.customerDetails
-      .findFirst()
-      .then((data) => console.log(data))
-      .catch((e) => console.log(e));
+    // api.customerDetails
+    //   .findFirst()
+    //   .then((data) => console.log(data))
+    //   .catch((e) => console.log(e));
     // console.log(api);
     // api.shopifyCustomer
     //   .findFirst()
@@ -78,10 +78,10 @@ const Home: NextPage = () => {
       ],
     };
 
-    api.customerDetails
-      .findFirst()
-      .then((data) => console.log(data))
-      .catch((e) => console.log(e));
+    // api.customerDetails
+    //   .findFirst()
+    //   .then((data) => console.log(data))
+    //   .catch((e) => console.log(e));
     // api.shopifyCustomer
     //   .findFirst()
     //   .then((data) => console.log(data))
