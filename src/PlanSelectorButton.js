@@ -17,8 +17,8 @@ export const PlanSelectorButton = (props) => {
   useEffect(() => {
     api.shopifyShop
       .findMany()
-      .then((data) => console.log(data))
-      .catch((e) => console.log(e));
+      .then((data) => console.log(data, "data"))
+      .catch((e) => console.log(e, "error"));
   }, []);
 
   return (

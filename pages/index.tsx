@@ -79,10 +79,14 @@ const Home: NextPage = () => {
       ],
     };
 
-    // api.customerDetails
-    //   .findFirst()
-    //   .then((data) => console.log(data))
-    //   .catch((e) => console.log(e));
+    api.customerDetails
+      .findFirst()
+      .then((data) => console.log(data))
+      .catch((e) => console.log(e));
+    api.shopifyShop
+      .findFirst()
+      .then((data) => console.log(data, "dataaaaaa"))
+      .catch((e) => console.log(e, "errorrrrrrr"));
     // api.shopifyCustomer
     //   .findFirst()
     //   .then((data) => console.log(data))
