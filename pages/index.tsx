@@ -115,7 +115,7 @@ const Home: NextPage = () => {
   const [, deleteCustomer] = useAction(api.shopifyCustomer.delete);
   // Loading or app bridge has not been set up yet
   if (loading || !appBridge) {
-    return <Spinner />;
+    return <PlanSelectorButton />;
   }
 
   // Set up a title bar for my embedded app

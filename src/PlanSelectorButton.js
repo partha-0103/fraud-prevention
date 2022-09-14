@@ -1,9 +1,10 @@
+import { useCallback, useEffect } from "react";
 import { useAction } from "@gadgetinc/react";
 import { api } from "./api";
 export const PlanSelectorButton = (props) => {
-  const [{ fetching, error, data }, createSubscription] = useAction(
-    api.shopifyShop.subscribe
-  );
+  // const [{ fetching, error, data }, createSubscription] = useAction(
+  //   api.shopifyShop.subscribe
+  // );
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const subscribe = useCallback(async (plan) => {
@@ -13,12 +14,19 @@ export const PlanSelectorButton = (props) => {
     window.location.href = shop.confirmationUrl;
   });
 
+  useEffect(() => {
+    api.shopifyShop
+      .findMany()
+      .then((data) => console.log(data))
+      .catch((e) => console.log(e));
+  }, []);
+
   return (
     <button
       onClick={() => {
         subscribe("basic");
       }}
-      disabled={fetching}
+      // disabled={fetching}
     >
       Basic
     </button>
