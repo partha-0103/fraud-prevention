@@ -79,10 +79,10 @@ const Home: NextPage = () => {
       ],
     };
 
-    api.customerDetails
-      .findFirst()
-      .then((data) => console.log(data))
-      .catch((e) => console.log(e));
+    // api.customerDetails
+    //   .findFirst()
+    //   .then((data) => console.log(data))
+    //   .catch((e) => console.log(e));
     // api.shopifyCustomer
     //   .findFirst()
     //   .then((data) => console.log(data))
@@ -115,7 +115,7 @@ const Home: NextPage = () => {
   const [, deleteCustomer] = useAction(api.shopifyCustomer.delete);
   // Loading or app bridge has not been set up yet
   if (loading || !appBridge) {
-    return <PlanSelectorButton />;
+    return <Spinner />;
   }
 
   // Set up a title bar for my embedded app
