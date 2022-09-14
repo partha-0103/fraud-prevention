@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from "react";
-import { useAction, useFindMany } from "@gadgetinc/react";
+import { useAction, useFindFirst } from "@gadgetinc/react";
 import { api } from "./api";
 export const PlanSelectorButton = (props) => {
   const [result, refresh] = useFindFirst(api.shopifyShop);
