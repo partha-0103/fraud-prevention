@@ -1,4 +1,5 @@
 import { useAction } from "@gadgetinc/react";
+import { api } from "./api";
 export const PlanSelectorButton = (props) => {
   const [{ fetching, error, data }, createSubscription] = useAction(
     api.shopifyShop.subscribe
