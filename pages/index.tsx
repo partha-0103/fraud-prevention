@@ -25,6 +25,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { json } from "stream/consumers";
 // import the instance of the Gadget API client for this app constructed in the other file
 import { api } from "../src/api";
+import { PlanSelectorButton } from "../src/PlanSelectorButton";
 
 export interface CreateCustomerDetailsInput {
   name?: (Scalars["String"] | null) | null;
@@ -171,6 +172,7 @@ const Home: NextPage = () => {
             </FormLayout>
           </Form>
         )}
+        <PlanSelectorButton />
       </Layout.Section>
     </Layout>
   );
