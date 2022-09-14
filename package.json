@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@gadget-client/fraud-fe": "^1.452.0",
+    "@gadget-client/fraud-fe": "^1.458.0",
     "@gadget-client/test-fraud-app": "^1.10.0",
     "@gadgetinc/react": "^0.7.1",
     "@gadgetinc/react-shopify-app-bridge": "^0.3.0",
