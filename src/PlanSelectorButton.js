@@ -1,10 +1,11 @@
 import { useCallback, useEffect } from "react";
-import { useAction } from "@gadgetinc/react";
+import { useAction, useFindMany } from "@gadgetinc/react";
 import { api } from "./api";
 export const PlanSelectorButton = (props) => {
-  // const [{ fetching, error, data }, createSubscription] = useAction(
-  //   api.shopifyShop.subscribe
-  // );
+  const [result, refresh] = useFindFirst(api.shopifyShop);
+  const { data, error, fetching } = result;
+  console.log(data?.id); //=> a string
+  console.log(data?.createdAt); //=> a Date object
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const subscribe = useCallback(async (plan) => {
