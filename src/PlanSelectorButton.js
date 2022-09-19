@@ -8,7 +8,7 @@ export const PlanSelectorButton = (props) => {
     },
   });
   const { data, error, fetching } = result;
-  console.log(data); //=> a string
+  console.log(data?.confirmationurl); //=> a string
   console.log(data); //=> a Date object
 
   return (
