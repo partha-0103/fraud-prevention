@@ -15,7 +15,7 @@ export const PlanSelectorButton = (props) => {
     <button
       onClick={() => {
         console.log(data?.confirmationurl);
-        window.open(data?.confirmationurl);
+        window.open(data?.confirmationurl, "_self");
       }}
       // disabled={fetching}
     >

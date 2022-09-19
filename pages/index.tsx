@@ -68,31 +68,6 @@ const Home: NextPage = () => {
     };
     console.log(data);
     createCustomers(data);
-    // api.customerDetails
-    //   .findFirst()
-    //   .then((data) => console.log(data))
-    //   .catch((e) => console.log(e));
-    // api.shopifyShop
-    //   .findFirst()
-    //   .then((data) => console.log(data, "dataaaaaa"))
-    //   .catch((e) => console.log(e, "errorrrrrrr"));
-    // api.shopifyCustomer
-    //   .findFirst()
-    //   .then((data) => console.log(data))
-    //   .catch((e) => console.log(e));
-
-    // api.
-    // axios({
-    //   url: "https://bfp.stg.bureau.id/topics/shopify-merchant-onboard",
-    //   headers: {
-    //     "Content-Type": "application/vnd.kafka.json.v2+json",
-    //     "x-api-key": "XKrvMkvkHeaWBcGRCa24CxdJXV2Gh6B6oDyfq6mj",
-    //   },
-    //   method: "POST",
-    //   data: JSON.stringify(recordObject),
-    // })
-    //   .then(({ data }) => console.log(data, "success"))
-    //   .catch((e) => console.log(e, "error"));
   };
 
   const createCustomers = async (
