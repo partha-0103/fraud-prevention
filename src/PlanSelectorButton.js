@@ -4,7 +4,7 @@ import { api } from "./api";
 export const PlanSelectorButton = (props) => {
   const [result, refresh] = useFindFirst(api.shopifyShop, {
     select: {
-      confirmationUrl: true,
+      confirmationurl: true,
     },
   });
   const { data, error, fetching } = result;
