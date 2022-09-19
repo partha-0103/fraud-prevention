@@ -32,10 +32,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@gadget-client/fraud-fe@^1.458.0":
-  version "1.458.0"
-  resolved "https://registry.gadget.dev/npm/_/tarball/3661/6114/1535#b7f9164e2a6798b6815f4bf85f6fa53e266c17ba"
-  integrity sha1-t/kWTipnmLaBX0v4X2+lPiZsF7o=
+"@gadget-client/fraud-fe@^1.472.0":
+  version "1.472.0"
+  resolved "https://registry.gadget.dev/npm/_/tarball/3661/6114/1569#72403a2794a3a279929e0811afb28f9b3ae53c62"
+  integrity sha1-ckA6J5SjonmSnggRr7KPmzrlPGI=
   dependencies:
     "@gadgetinc/api-client-core" "0.9.0"
 
@@ -63,10 +63,10 @@
     lodash.isequal "^4.5.0"
     ws "^8.2.2"
 
-"@gadgetinc/react-shopify-app-bridge@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.npmjs.org/@gadgetinc/react-shopify-app-bridge/-/react-shopify-app-bridge-0.3.0.tgz"
-  integrity sha512-qXyQRnuGC3YXfkGzkzWt7ETOHd2Vc6ASy/QA6p+WCTrf/WfNUGGT/0XL8kPDhBVa3qIohaY5INuUo25XY55xvg==
+"@gadgetinc/react-shopify-app-bridge@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@gadgetinc/react-shopify-app-bridge/-/react-shopify-app-bridge-0.4.0.tgz#7a69b677eb3cfb8db106dde3f8b4460eaed84bbf"
+  integrity sha512-ycxoh1aCy2wFp9B9GbtDiFVHPNciTxWSzBwLYVTpr/Jlb44RjDFO4OBEglgzzhUInuEp/ZSZ50W6wHKVz0o+gA==
   dependencies:
     "@gadgetinc/api-client-core" "^0.9.0"
     "@shopify/app-bridge-utils" "^3.1.1"
