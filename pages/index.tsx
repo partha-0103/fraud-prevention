@@ -56,7 +56,7 @@ const Home: NextPage = () => {
   //     // field values for Customer Details
   //   },
   // });
-  console.log(data?.id); //=> a string
+  console.log(data, error, fetching); //=> a string
 
   useEffect(() => {
     // api.customerDetails
