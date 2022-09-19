@@ -1,20 +1,16 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useAction, useFindMany } from "@gadgetinc/react";
 import { api } from "./api";
 export const PlanSelectorButton = (props) => {
-  const [result, refresh] = useFindMany(api.shopifyShop);
-  const { data, error, fetching } = result;
-  console.log(data?.length); //=> a number
-  console.log(data?.[0].length); //=> a string
-
+  const [data, setData] = useState();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const subscribe = useCallback(async (plan) => {
-    // create the resource in the backend
-    const shop = await createSubscription(theShopId, { plan });
-    // redirect the merchant to accept the charge within Shopify's interface
-    window.location.href = shop.confirmationUrl;
-  });
-
+  useEffect(() => {
+    api.shopifyCustomer
+      .findFirst()
+      .then((data) => console.log(setData(data)))
+      .catch((e) => console.log(e));
+  }, []);
+  console.log(data);
   // useEffect(() => {
   //   api.shopifyShop
   //     .findMany()
