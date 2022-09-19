@@ -49,6 +49,14 @@ const Home: NextPage = () => {
   const [phone, setPhone] = useState("");
   const [businessName, setBusinessName] = useState("");
   const [businessWebsite, setBusinessWebsite] = useState("");
+  const [result, createCustomerDetails] = useAction(api.customerDetails.create);
+  const { data, error, fetching } = result;
+  // await createCustomerDetails({
+  //   customerDetails: {
+  //     // field values for Customer Details
+  //   },
+  // });
+  console.log(data?.id); //=> a string
 
   useEffect(() => {
     // api.customerDetails
@@ -68,29 +76,25 @@ const Home: NextPage = () => {
       name,
       email,
       phone,
-      businessName,
-      businessWebsite,
+      businessname: businessName,
+      businessurl: businessWebsite,
     };
-    let recordObject = {
-      records: [
-        {
-          value: data,
-        },
-      ],
-    };
+    console.log(data);
 
-    api.customerDetails
-      .findFirst()
-      .then((data) => console.log(data))
-      .catch((e) => console.log(e));
+    // api.customerDetails
+    //   .findFirst()
+    //   .then((data) => console.log(data))
+    //   .catch((e) => console.log(e));
     // api.shopifyShop
     //   .findFirst()
     //   .then((data) => console.log(data, "dataaaaaa"))
     //   .catch((e) => console.log(e, "errorrrrrrr"));
-    api.shopifyCustomer
-      .findFirst()
-      .then((data) => console.log(data))
-      .catch((e) => console.log(e));
+    // api.shopifyCustomer
+    //   .findFirst()
+    //   .then((data) => console.log(data))
+    //   .catch((e) => console.log(e));
+
+    // api.
     // axios({
     //   url: "https://bfp.stg.bureau.id/topics/shopify-merchant-onboard",
     //   headers: {
@@ -104,6 +108,17 @@ const Home: NextPage = () => {
     //   .catch((e) => console.log(e, "error"));
   };
 
+  const createCustomers = async (
+    customerDetailsData: CreateCustomerDetailsInput
+  ) => {
+    await createCustomerDetails({
+      customerDetails: {
+        ...customerDetailsData,
+      },
+    });
+    console.log(data?.id); //=> a string
+  };
+  console.log(data);
   const handleNameChange = useCallback((value: string) => setName(value), []);
   const handleEmailChange = useCallback((value: string) => setEmail(value), []);
   const handlePhoneChange = useCallback((value: string) => setPhone(value), []);
