@@ -14,7 +14,8 @@ export const PlanSelectorButton = (props) => {
   return (
     <button
       onClick={() => {
-        window.href = data?.confirmationurl;
+        console.log(data?.confirmationurl);
+        window.open(data?.confirmationurl);
       }}
       // disabled={fetching}
     >
