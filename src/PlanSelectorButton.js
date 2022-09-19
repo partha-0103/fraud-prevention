@@ -2,21 +2,14 @@ import { useCallback, useEffect, useState } from "react";
 import { useAction, useFindMany } from "@gadgetinc/react";
 import { api } from "./api";
 export const PlanSelectorButton = (props) => {
-  const [data, setData] = useState();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => {
-    api.shopifyCustomer
-      .findFirst()
-      .then((data) => console.log(setData(data)))
-      .catch((e) => console.log(e));
-  }, []);
-  console.log(data);
-  // useEffect(() => {
-  //   api.shopifyShop
-  //     .findMany()
-  //     .then((data) => console.log(data, "data"))
-  //     .catch((e) => console.log(e, "error"));
-  // }, []);
+  const [result, refresh] = useFindFirst(api.shopifyShop, {
+    select: {
+      confirmationUrl: true,
+    },
+  });
+  const { data, error, fetching } = result;
+  console.log(data); //=> a string
+  console.log(data); //=> a Date object
 
   return (
     <button
