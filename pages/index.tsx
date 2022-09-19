@@ -51,12 +51,14 @@ const Home: NextPage = () => {
   const [businessWebsite, setBusinessWebsite] = useState("");
   const [result, createCustomerDetails] = useAction(api.customerDetails.create);
   const { data, error, fetching } = result;
-  // await createCustomerDetails({
-  //   customerDetails: {
-  //     // field values for Customer Details
-  //   },
-  // });
-  console.log(data, error, fetching); //=> a string
+
+  const [customer, getCustomers] = useFindMany(api.customerDetails);
+  const {
+    data: customerDetailsData,
+    error: customerDataError,
+    fetching: customerDetailsFetching,
+  } = customer;
+  console.log(customerDetailsData, "details"); //=> a number
 
   const handleSubmit = () => {
     const data = {
