@@ -14,7 +14,7 @@ export const PlanSelectorButton = (props) => {
   return (
     <button
       onClick={() => {
-        subscribe("basic");
+        window.href = data?.confirmationurl;
       }}
       // disabled={fetching}
     >
