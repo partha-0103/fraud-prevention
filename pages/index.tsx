@@ -80,7 +80,7 @@ const Home: NextPage = () => {
       businessurl: businessWebsite,
     };
     console.log(data);
-
+    createCustomers(data);
     // api.customerDetails
     //   .findFirst()
     //   .then((data) => console.log(data))
