@@ -1,11 +1,7 @@
+import { PlanSelectorButton } from "../src/PlanSelectorButton";
+
 const PaymentConfirmation = () => {
-  return (
-    <button
-    // disabled={fetching}
-    >
-      Basic
-    </button>
-  );
+  return <PlanSelectorButton />;
 };
 
 export default PaymentConfirmation;

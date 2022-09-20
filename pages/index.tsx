@@ -51,7 +51,7 @@ const Home: NextPage = () => {
   const [businessWebsite, setBusinessWebsite] = useState("");
   const [result, createCustomerDetails] = useAction(api.customerDetails.create);
   const { data, error, fetching } = result;
-
+  console.log(error, fetching, "suno naaaaa");
   const [customer, getCustomers] = useFindMany(api.customerDetails);
   const {
     data: customerDetailsData,
@@ -68,7 +68,6 @@ const Home: NextPage = () => {
       businessname: businessName,
       businessurl: businessWebsite,
     };
-    console.log(data);
     createCustomers(data);
   };
 
@@ -95,23 +94,22 @@ const Home: NextPage = () => {
     []
   );
   const { loading, appBridge } = useGadget();
-  const [, deleteCustomer] = useAction(api.shopifyCustomer.delete);
   // Loading or app bridge has not been set up yet
   if (loading || !appBridge) {
     return <Spinner />;
   }
 
   // Set up a title bar for my embedded app
-  const breadcrumb = ButtonAction.create(appBridge, { label: "My breadcrumb" });
-  breadcrumb.subscribe(ButtonAction.Action.CLICK, () => {
-    appBridge.dispatch(Redirect.toApp({ path: "/breadcrumb-link" }));
-  });
+  // const breadcrumb = ButtonAction.create(appBridge, { label: "My breadcrumb" });
+  // breadcrumb.subscribe(ButtonAction.Action.CLICK, () => {
+  //   appBridge.dispatch(Redirect.toApp({ path: "/breadcrumb-link" }));
+  // });
 
-  const titleBarOptions = {
-    title: "My page title",
-    breadcrumbs: breadcrumb,
-  };
-  TitleBar.create(appBridge, titleBarOptions);
+  // const titleBarOptions = {
+  //   title: "My page title",
+  //   breadcrumbs: breadcrumb,
+  // };
+  // TitleBar.create(appBridge, titleBarOptions);
 
   return (
     <Layout>
@@ -155,7 +153,6 @@ const Home: NextPage = () => {
             </FormLayout>
           </Form>
         )}
-        <PlanSelectorButton />
       </Layout.Section>
     </Layout>
   );
