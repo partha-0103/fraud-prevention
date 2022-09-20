@@ -1,5 +1,6 @@
 // import Gadget's react hooks for accessing data from your Gadget app
 import { Scalars } from "@gadget-client/fraud-fe";
+import { useRouter } from "next/router";
 import { useAction, useFindMany } from "@gadgetinc/react";
 // import the Gadget<->Shopify bindings that manage the auth process with Shopify
 import { useGadget } from "@gadgetinc/react-shopify-app-bridge";
@@ -49,6 +50,7 @@ const Home: NextPage = () => {
   const [phone, setPhone] = useState("");
   const [businessName, setBusinessName] = useState("");
   const [businessWebsite, setBusinessWebsite] = useState("");
+  const router = useRouter();
   const [result, createCustomerDetails] = useAction(api.customerDetails.create);
   console.log(result);
   const { data, error, fetching } = result;
@@ -67,7 +69,6 @@ const Home: NextPage = () => {
       phone,
       businessname: businessName,
       businessurl: businessWebsite,
-      abc: "hello",
     };
     createCustomers(data);
   };
@@ -75,12 +76,14 @@ const Home: NextPage = () => {
   const createCustomers = async (
     customerDetailsData: CreateCustomerDetailsInput
   ) => {
-    await createCustomerDetails({
+    const _result = await createCustomerDetails({
       customerDetails: {
         ...customerDetailsData,
       },
     });
-    console.log(data?.id); //=> a string
+    if (_result.data) {
+      router.push("/payment-confirmation");
+    }
   };
   console.log(data);
   const handleNameChange = useCallback((value: string) => setName(value), []);
