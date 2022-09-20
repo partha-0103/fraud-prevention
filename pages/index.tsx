@@ -52,7 +52,6 @@ const Home: NextPage = () => {
   const [businessWebsite, setBusinessWebsite] = useState("");
   const router = useRouter();
   const [result, createCustomerDetails] = useAction(api.customerDetails.create);
-  console.log(result);
   const { data, error, fetching } = result;
   const [customer, getCustomers] = useFindMany(api.customerDetails);
   const {
@@ -69,6 +68,7 @@ const Home: NextPage = () => {
       phone,
       businessname: businessName,
       businessurl: businessWebsite,
+      shop: window.location.host,
     };
     createCustomers(data);
   };
@@ -81,10 +81,10 @@ const Home: NextPage = () => {
         ...customerDetailsData,
       },
     });
-    const { data } = _result;
-    console.log(data);
     if (_result.data) {
       router.push("/payment-confirmation");
+    } else {
+      console.log("error fetching data");
     }
   };
   console.log(data);
