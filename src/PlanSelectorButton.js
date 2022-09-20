@@ -8,11 +8,11 @@ export const PlanSelectorButton = (props) => {
     },
   });
   const { data, error, fetching } = result;
+
   return (
     <button
       onClick={() => {
-        console.log(data?.confirmationurl);
-        window.location.href = data?.confirmationurl;
+        window.open(data?.confirmationurl);
       }}
       // disabled={fetching}
     >
