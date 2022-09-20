@@ -81,6 +81,8 @@ const Home: NextPage = () => {
         ...customerDetailsData,
       },
     });
+    const { data } = _result;
+    console.log(data);
     if (_result.data) {
       router.push("/payment-confirmation");
     }
