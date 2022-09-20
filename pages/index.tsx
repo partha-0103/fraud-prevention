@@ -50,8 +50,8 @@ const Home: NextPage = () => {
   const [businessName, setBusinessName] = useState("");
   const [businessWebsite, setBusinessWebsite] = useState("");
   const [result, createCustomerDetails] = useAction(api.customerDetails.create);
+  console.log(result);
   const { data, error, fetching } = result;
-  console.log(error, fetching, "suno naaaaa");
   const [customer, getCustomers] = useFindMany(api.customerDetails);
   const {
     data: customerDetailsData,
