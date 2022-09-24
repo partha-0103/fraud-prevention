@@ -70,10 +70,11 @@ const Home: NextPage = () => {
     if (!customerDetailsData?.length || shopData?.myshopifyDomain) {
       return;
     }
-    const currentDetails = customerDetailsData.find(
-      (details) => details.shopurl === shopData?.myshopifyDomain
-    );
-    console.log(currentDetails);
+    const currentDetails = customerDetailsData.find((details) => {
+      console.log(details.shopurl);
+      return details.shopurl === shopData?.myshopifyDomain;
+    });
+    console.log(currentDetails, shopData?.myshopifyDomain);
   }, [shopData, customerDetailsData]);
   const handleSubmit = () => {
     const data = {
