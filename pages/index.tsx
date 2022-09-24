@@ -1,4 +1,4 @@
-// import Gadget's react hooks for accessing data from your Gadget app
+// import Gadget's react hooks for acce
 import { Scalars } from "@gadget-client/fraud-fe";
 import { useRouter } from "next/router";
 import { useAction, useFindFirst, useFindMany } from "@gadgetinc/react";
@@ -66,6 +66,9 @@ const Home: NextPage = () => {
     },
   });
   const { data: shopData, fetching: shopDataFetching } = shopResult;
+  useEffect(() => {
+    console.log(shopData, customerDetailsData);
+  }, [shopResult, customerDetailsData]);
   const handleSubmit = () => {
     const data = {
       name,
@@ -105,10 +108,11 @@ const Home: NextPage = () => {
   );
   const { loading, appBridge } = useGadget();
   // Loading or app bridge has not been set up yet
-  if (loading || !appBridge || customerDetailsFetching) {
+  if (loading || !appBridge || customerDetailsFetching || shopDataFetching) {
     return <Spinner />;
   }
   console.log({ customerDetailsData });
+
   // Set up a title bar for my embedded app
   // const breadcrumb = ButtonAction.create(appBridge, { label: "My breadcrumb" });
   // breadcrumb.subscribe(ButtonAction.Action.CLICK, () => {
