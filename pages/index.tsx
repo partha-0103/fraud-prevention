@@ -74,7 +74,7 @@ const Home: NextPage = () => {
       console.log(details.shopurl, shopData, "pkhkbkkjkknkkn");
       return details.shopurl === shopData?.myshopifyDomain;
     });
-    console.log(currentDetails, shopData, "ljnkjnkkk");
+    console.log(currentDetails, shopData?.isEmpty, "ljnkjnkkk");
   }, [shopData, customerDetailsData]);
   const handleSubmit = () => {
     const data = {
