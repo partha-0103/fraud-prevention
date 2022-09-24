@@ -71,7 +71,7 @@ const Home: NextPage = () => {
       return;
     }
     const currentDetails = customerDetailsData.find((details) => {
-      console.log(details.shopurl, "pkhkbkkjkknkkn");
+      console.log(details.shopurl, shopData?.myshopifyDomain, "pkhkbkkjkknkkn");
       return details.shopurl === shopData?.myshopifyDomain;
     });
     console.log(currentDetails, shopData?.myshopifyDomain, "ljnkjnkkk");
