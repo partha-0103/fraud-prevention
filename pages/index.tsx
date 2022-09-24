@@ -68,10 +68,11 @@ const Home: NextPage = () => {
   const { data: shopData, fetching: shopDataFetching } = shopResult;
   console.log(shopData, "shop data outer");
   useEffect(() => {
+    console.log(shopData, "shop data");
     if (!customerDetailsData?.length || shopData?.myshopifyDomain) {
       return;
     }
-    console.log(shopData, "shop data");
+
     const currentDetails = customerDetailsData.find((details) => {
       console.log(details.shopurl, shopData, "pkhkbkkjkknkkn");
       return details.shopurl === shopData?.myshopifyDomain;
