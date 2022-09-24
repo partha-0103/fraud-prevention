@@ -71,10 +71,10 @@ const Home: NextPage = () => {
       return;
     }
     const currentDetails = customerDetailsData.find((details) => {
-      console.log(details.shopurl);
+      console.log(details.shopurl, "pkhkbkkjkknkkn");
       return details.shopurl === shopData?.myshopifyDomain;
     });
-    console.log(currentDetails, shopData?.myshopifyDomain);
+    console.log(currentDetails, shopData?.myshopifyDomain, "ljnkjnkkk");
   }, [shopData, customerDetailsData]);
   const handleSubmit = () => {
     const data = {
