@@ -75,10 +75,11 @@ const Home: NextPage = () => {
     console.log(shopifyDomain, "shop data", customerDetailsData?.length);
 
     const currentDetails = customerDetailsData.find((details) => {
-      console.log(details.shopurl, shopData, "pkhkbkkjkknkkn");
       return details.shopurl === shopData?.myshopifyDomain;
     });
-    console.log(currentDetails, "ljnkjnkkk");
+    if (currentDetails) {
+      router.push("/payment-confirmation");
+    }
   }, [shopData, customerDetailsData]);
   const handleSubmit = () => {
     const data = {
