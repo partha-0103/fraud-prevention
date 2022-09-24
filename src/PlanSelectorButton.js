@@ -13,17 +13,19 @@ export const PlanSelectorButton = (props) => {
   return (
     <Layout>
       <Layout.Section>
-        <Card title="Online store dashboard" sectioned>
-          <p>View a summary of your online store’s performance.</p>
+        <Card sectioned>
+          <p>Product Pricing Information</p>
+          <div>Inr 10 per order</div>
         </Card>
         <Button
-          onClick={() => {
-            window.open(data?.confirmationurl);
-          }}
+          // onClick={() => {
+          //   window.open(data?.confirmationurl);
+          // }}
+          url={data?.confirmationurl}
           disabled={fetching}
           primary
         >
-          Basic
+          Accept
         </Button>
       </Layout.Section>
     </Layout>
