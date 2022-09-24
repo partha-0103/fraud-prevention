@@ -68,7 +68,6 @@ const Home: NextPage = () => {
       phone,
       businessname: businessName,
       businessurl: businessWebsite,
-      shop: window.location.host,
     };
     createCustomers(data);
   };
