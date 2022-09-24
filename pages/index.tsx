@@ -77,7 +77,9 @@ const Home: NextPage = () => {
     const currentDetails = customerDetailsData.find((details) => {
       return details.shopurl === shopData?.myshopifyDomain;
     });
+    console.log(currentDetails);
     if (currentDetails) {
+      console.log("called");
       router.push("/payment-confirmation");
     }
   }, [shopData, customerDetailsData]);
