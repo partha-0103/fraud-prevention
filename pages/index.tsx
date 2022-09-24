@@ -67,7 +67,13 @@ const Home: NextPage = () => {
   });
   const { data: shopData, fetching: shopDataFetching } = shopResult;
   useEffect(() => {
-    console.log(shopData, customerDetailsData);
+    if (!customerDetailsData?.length || shopData?.myshopifyDomain) {
+      return;
+    }
+    const currentDetails = customerDetailsData.find(
+      (details) => details.shopurl === shopData?.myshopifyDomain
+    );
+    console.log(currentDetails);
   }, [shopData, customerDetailsData]);
   const handleSubmit = () => {
     const data = {
