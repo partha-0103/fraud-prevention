@@ -68,7 +68,7 @@ const Home: NextPage = () => {
   const { data: shopData, fetching: shopDataFetching } = shopResult;
   useEffect(() => {
     console.log(shopData, customerDetailsData);
-  }, [shopResult, customerDetailsData]);
+  }, [shopData, customerDetailsData]);
   const handleSubmit = () => {
     const data = {
       name,
