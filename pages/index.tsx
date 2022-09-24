@@ -62,7 +62,7 @@ const Home: NextPage = () => {
 
   const [shopResult, refresh] = useFindFirst(api.shopifyShop, {
     select: {
-      confirmationurl: true,
+      myshopifyDomain: true,
     },
   });
   const { data: shopData } = shopResult;
@@ -74,6 +74,7 @@ const Home: NextPage = () => {
       phone,
       businessname: businessName,
       businessurl: businessWebsite,
+      shopurl: shopData?.myshopifyDomain || "",
     };
     createCustomers(data);
   };
