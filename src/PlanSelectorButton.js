@@ -20,9 +20,7 @@ export const PlanSelectorButton = (props) => {
         <Button
           onClick={() => {
             window.open(data?.confirmationurl);
-            setTimeout(() => {
-              window.close();
-            }, 1000);
+            window.close();
           }}
           disabled={fetching}
           primary
