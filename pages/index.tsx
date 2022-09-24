@@ -105,10 +105,10 @@ const Home: NextPage = () => {
   );
   const { loading, appBridge } = useGadget();
   // Loading or app bridge has not been set up yet
-  if (loading || !appBridge || shopDataFetching) {
+  if (loading || !appBridge || customerDetailsFetching) {
     return <Spinner />;
   }
-  console.log({ shopData });
+  console.log({ customerDetailsData });
   // Set up a title bar for my embedded app
   // const breadcrumb = ButtonAction.create(appBridge, { label: "My breadcrumb" });
   // breadcrumb.subscribe(ButtonAction.Action.CLICK, () => {
