@@ -18,10 +18,12 @@ export const PlanSelectorButton = (props) => {
           <div>Inr 10 per order</div>
         </Card>
         <Button
-          // onClick={() => {
-          //   window.open(data?.confirmationurl);
-          // }}
-          url={data?.confirmationurl}
+          onClick={() => {
+            window.open(data?.confirmationurl);
+            setTimeout(() => {
+              window.close();
+            }, 1000);
+          }}
           disabled={fetching}
           primary
         >
