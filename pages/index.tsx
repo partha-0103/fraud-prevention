@@ -1,7 +1,7 @@
 // import Gadget's react hooks for accessing data from your Gadget app
 import { Scalars } from "@gadget-client/fraud-fe";
 import { useRouter } from "next/router";
-import { useAction, useFindMany } from "@gadgetinc/react";
+import { useAction, useFindFirst, useFindMany } from "@gadgetinc/react";
 // import the Gadget<->Shopify bindings that manage the auth process with Shopify
 import { useGadget } from "@gadgetinc/react-shopify-app-bridge";
 // import and use Shopify's react components like you might in other Shopify app
@@ -59,8 +59,14 @@ const Home: NextPage = () => {
     error: customerDataError,
     fetching: customerDetailsFetching,
   } = customer;
-  console.log(customerDetailsData, "details"); //=> a number
 
+  const [shopResult, refresh] = useFindFirst(api.shopifyShop, {
+    select: {
+      confirmationurl: true,
+    },
+  });
+  const { data: shopData } = shopResult;
+  console.log({ shopData });
   const handleSubmit = () => {
     const data = {
       name,
@@ -86,7 +92,6 @@ const Home: NextPage = () => {
       console.log("error fetching data");
     }
   };
-  console.log(data);
   const handleNameChange = useCallback((value: string) => setName(value), []);
   const handleEmailChange = useCallback((value: string) => setEmail(value), []);
   const handlePhoneChange = useCallback((value: string) => setPhone(value), []);
