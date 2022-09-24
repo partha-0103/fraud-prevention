@@ -65,8 +65,7 @@ const Home: NextPage = () => {
       myshopifyDomain: true,
     },
   });
-  const { data: shopData } = shopResult;
-  console.log({ shopData });
+  const { data: shopData, fetching: shopDataFetching } = shopResult;
   const handleSubmit = () => {
     const data = {
       name,
@@ -106,10 +105,10 @@ const Home: NextPage = () => {
   );
   const { loading, appBridge } = useGadget();
   // Loading or app bridge has not been set up yet
-  if (loading || !appBridge) {
+  if (loading || !appBridge || shopDataFetching) {
     return <Spinner />;
   }
-
+  console.log({ shopData });
   // Set up a title bar for my embedded app
   // const breadcrumb = ButtonAction.create(appBridge, { label: "My breadcrumb" });
   // breadcrumb.subscribe(ButtonAction.Action.CLICK, () => {
