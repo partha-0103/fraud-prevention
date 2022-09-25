@@ -70,6 +70,7 @@ const Home: NextPage = () => {
   const formik = useFormik({
     initialValues: {
       email: "",
+      name: "",
     },
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
@@ -175,7 +176,7 @@ const Home: NextPage = () => {
                     },
                   });
                 }}
-                value={formik.values.email}
+                value={formik.values.name}
                 label="Name"
                 autoComplete="off"
               />
