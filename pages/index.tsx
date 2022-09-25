@@ -131,7 +131,6 @@ const Home: NextPage = () => {
   if (loading || !appBridge || customerDetailsFetching || shopDataFetching) {
     return <Spinner />;
   }
-  console.log({ customerDetailsData });
 
   // Set up a title bar for my embedded app
   // const breadcrumb = ButtonAction.create(appBridge, { label: "My breadcrumb" });
@@ -167,7 +166,7 @@ const Home: NextPage = () => {
                     value={formik.values.name}
                     label="Name"
                     autoComplete="off"
-                    error={formik.errors.name}
+                    error={formik.touched.name && formik.errors.name}
                   />
                   <TextField
                     onChange={(e) => {
@@ -181,7 +180,7 @@ const Home: NextPage = () => {
                     value={formik.values.email}
                     label="Email"
                     autoComplete="email"
-                    error={formik.errors.email}
+                    error={formik.touched.email && formik.errors.email}
                   />
                   <TextField
                     onChange={(e) => {
@@ -195,7 +194,7 @@ const Home: NextPage = () => {
                     value={formik.values.phone}
                     label="Phone"
                     autoComplete="off"
-                    error={formik.errors.phone}
+                    error={formik.touched.phone && formik.errors.phone}
                   />
                   <TextField
                     onChange={(e) => {
@@ -209,7 +208,9 @@ const Home: NextPage = () => {
                     value={formik.values.businessname}
                     autoComplete="off"
                     label="Business Name"
-                    error={formik.errors.businessname}
+                    error={
+                      formik.touched.businessname && formik.errors.businessname
+                    }
                   />
                   <TextField
                     onChange={(e) => {
@@ -223,7 +224,9 @@ const Home: NextPage = () => {
                     value={formik.values.businessurl}
                     autoComplete="off"
                     label="Business Website"
-                    error={formik.errors.businessurl}
+                    error={
+                      formik.touched.businessurl && formik.errors.businessurl
+                    }
                   />
                   <Button submit primary>
                     Submit
