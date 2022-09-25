@@ -2,7 +2,8 @@ import {
   AppType,
   Provider as GadgetProvider,
 } from "@gadgetinc/react-shopify-app-bridge";
-import { AppProvider, Page } from "@shopify/polaris";
+import { AppProvider, Page, Navigation, Frame } from "@shopify/polaris";
+import { HomeMinor, OrdersMinor, ProductsMinor } from "@shopify/polaris-icons";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "@shopify/polaris/build/esm/styles.css";
@@ -29,6 +30,26 @@ function AppContainer({ Component, pageProps }: AppProps) {
       */}
         {/* @ts-ignore */}
         <AppProvider i18n={enTranslations}>
+          <Frame>
+            <Navigation location="/">
+              <Navigation.Section
+                items={[
+                  {
+                    url: "/",
+                    label: "Home",
+                  },
+                  {
+                    url: "/path/to/place",
+                    label: "Orders",
+                  },
+                  {
+                    url: "/path/to/place",
+                    label: "Products",
+                  },
+                ]}
+              />
+            </Navigation>
+          </Frame>
           <Page fullWidth>
             <Component {...pageProps} />
           </Page>
