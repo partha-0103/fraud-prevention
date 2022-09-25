@@ -19,10 +19,12 @@
     "@tanstack/react-query": "^4.2.3",
     "@tanstack/react-query-devtools": "^4.2.3",
     "axios": "^0.27.2",
+    "formik": "^2.2.9",
     "local-ssl-proxy": "^1.3.0",
     "next": "12.2.5",
     "react": "^18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/node": "18.7.15",

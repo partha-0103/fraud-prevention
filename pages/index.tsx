@@ -19,7 +19,7 @@ import {
   Spinner,
   TextField,
 } from "@shopify/polaris";
-import { useMutation } from "@tanstack/react-query";
+import { useFormik } from "formik";
 import axios from "axios";
 import type { NextPage } from "next";
 import React, { useCallback, useEffect, useState } from "react";
@@ -67,6 +67,14 @@ const Home: NextPage = () => {
     },
   });
   const { data: shopData, fetching: shopDataFetching } = shopResult;
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+    },
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
   useEffect(() => {
     const shopifyDomain = shopData?.myshopifyDomain;
     if (!customerDetailsData?.length || shopDataFetching) {
@@ -155,14 +163,14 @@ const Home: NextPage = () => {
       <Layout.Section>
         {loading && <span>Loading...</span>}
         {!loading && (
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={formik.handleSubmit}>
             <FormLayout>
               <TextField
-                value={name}
+                name="name"
+                onChange={formik.handleChange}
+                value={formik.values.email}
                 label="Name"
-                onChange={handleNameChange}
                 autoComplete="off"
-                error={isSubmitted && "Name can't be empty"}
               />
               <TextField
                 value={email}
