@@ -95,7 +95,6 @@ const Home: NextPage = () => {
     ) {
       return;
     }
-    console.log("called");
     const data = {
       name,
       email,
