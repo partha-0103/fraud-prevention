@@ -99,7 +99,7 @@ const Home: NextPage = () => {
     customerDetailsData: CreateCustomerDetailsInput
   ) => {
     const _result = await createCustomerDetails({
-      customerDetails: {
+      customerdetails: {
         ...customerDetailsData,
       },
     });
