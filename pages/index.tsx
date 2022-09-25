@@ -20,6 +20,7 @@ import {
   TextField,
 } from "@shopify/polaris";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 import axios from "axios";
 import type { NextPage } from "next";
 import React, { useCallback, useEffect, useState } from "react";
@@ -43,6 +44,25 @@ export interface CreateCustomerDetailsInput {
 export interface CreateCustomerDetailsArguments {
   customerDetails?: CreateCustomerDetailsInput | null;
 }
+
+const SignupSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(1, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  businessname: Yup.string()
+    .min(1, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  businessurl: Yup.string()
+    .min(1, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  phone: Yup.number()
+    .min(10, "Invalid phone no")
+    .required("This field is requried"),
+  email: Yup.string().email("Invalid email").required("Required"),
+});
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -76,6 +96,7 @@ const Home: NextPage = () => {
       console.log({ data });
       // createCustomers(data);
     },
+    validationSchema: SignupSchema,
   });
   useEffect(() => {
     const shopifyDomain = shopData?.myshopifyDomain;
@@ -189,7 +210,7 @@ const Home: NextPage = () => {
                   formik.handleChange({
                     target: {
                       value: e,
-                      name: "businessname",
+                      name: "businessurl",
                     },
                   });
                 }}
