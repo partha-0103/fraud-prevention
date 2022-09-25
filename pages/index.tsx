@@ -165,6 +165,7 @@ const Home: NextPage = () => {
                 value={formik.values.name}
                 label="Name"
                 autoComplete="off"
+                error={formik.errors.name}
               />
               <TextField
                 onChange={(e) => {
@@ -178,6 +179,7 @@ const Home: NextPage = () => {
                 value={formik.values.email}
                 label="Email"
                 autoComplete="email"
+                error={formik.errors.email}
               />
               <TextField
                 onChange={(e) => {
@@ -191,6 +193,7 @@ const Home: NextPage = () => {
                 value={formik.values.phone}
                 label="Phone"
                 autoComplete="off"
+                error={formik.errors.phone}
               />
               <TextField
                 onChange={(e) => {
@@ -204,6 +207,7 @@ const Home: NextPage = () => {
                 value={formik.values.businessname}
                 autoComplete="off"
                 label="Business Name"
+                error={formik.errors.businessname}
               />
               <TextField
                 onChange={(e) => {
@@ -217,6 +221,7 @@ const Home: NextPage = () => {
                 value={formik.values.businessurl}
                 autoComplete="off"
                 label="Business Website"
+                error={formik.errors.businessurl}
               />
               <Button submit>Submit</Button>
             </FormLayout>
