@@ -167,7 +167,14 @@ const Home: NextPage = () => {
             <FormLayout>
               <TextField
                 name="name"
-                onChange={(e) => console.log(e)}
+                onChange={(e) => {
+                  formik.handleChange({
+                    target: {
+                      value: e,
+                      name: "name",
+                    },
+                  });
+                }}
                 value={formik.values.email}
                 label="Name"
                 autoComplete="off"
