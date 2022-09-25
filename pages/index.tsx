@@ -18,6 +18,7 @@ import {
   Layout,
   Spinner,
   TextField,
+  Page,
 } from "@shopify/polaris";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -93,7 +94,6 @@ const Home: NextPage = () => {
         ...values,
         shopurl: shopData?.myshopifyDomain || "",
       };
-      console.log({ data });
       // createCustomers(data);
     },
     validationSchema: SignupSchema,
@@ -146,89 +146,95 @@ const Home: NextPage = () => {
   // TitleBar.create(appBridge, titleBarOptions);
 
   return (
-    <Layout>
-      <Layout.Section>
-        {loading && <span>Loading...</span>}
-        {!loading && (
-          <Form onSubmit={formik.handleSubmit}>
-            <FormLayout>
-              <TextField
-                name="name"
-                onChange={(e) => {
-                  formik.handleChange({
-                    target: {
-                      value: e,
-                      name: "name",
-                    },
-                  });
-                }}
-                value={formik.values.name}
-                label="Name"
-                autoComplete="off"
-                error={formik.errors.name}
-              />
-              <TextField
-                onChange={(e) => {
-                  formik.handleChange({
-                    target: {
-                      value: e,
-                      name: "email",
-                    },
-                  });
-                }}
-                value={formik.values.email}
-                label="Email"
-                autoComplete="email"
-                error={formik.errors.email}
-              />
-              <TextField
-                onChange={(e) => {
-                  formik.handleChange({
-                    target: {
-                      value: e,
-                      name: "phone",
-                    },
-                  });
-                }}
-                value={formik.values.phone}
-                label="Phone"
-                autoComplete="off"
-                error={formik.errors.phone}
-              />
-              <TextField
-                onChange={(e) => {
-                  formik.handleChange({
-                    target: {
-                      value: e,
-                      name: "businessname",
-                    },
-                  });
-                }}
-                value={formik.values.businessname}
-                autoComplete="off"
-                label="Business Name"
-                error={formik.errors.businessname}
-              />
-              <TextField
-                onChange={(e) => {
-                  formik.handleChange({
-                    target: {
-                      value: e,
-                      name: "businessurl",
-                    },
-                  });
-                }}
-                value={formik.values.businessurl}
-                autoComplete="off"
-                label="Business Website"
-                error={formik.errors.businessurl}
-              />
-              <Button submit>Submit</Button>
-            </FormLayout>
-          </Form>
-        )}
-      </Layout.Section>
-    </Layout>
+    <Page fullWidth>
+      <Layout>
+        <Layout.Section>
+          <Card title="Onboarding Details" sectioned>
+            {loading && <span>Loading...</span>}
+            {!loading && (
+              <Form onSubmit={formik.handleSubmit}>
+                <FormLayout>
+                  <TextField
+                    name="name"
+                    onChange={(e) => {
+                      formik.handleChange({
+                        target: {
+                          value: e,
+                          name: "name",
+                        },
+                      });
+                    }}
+                    value={formik.values.name}
+                    label="Name"
+                    autoComplete="off"
+                    error={formik.errors.name}
+                  />
+                  <TextField
+                    onChange={(e) => {
+                      formik.handleChange({
+                        target: {
+                          value: e,
+                          name: "email",
+                        },
+                      });
+                    }}
+                    value={formik.values.email}
+                    label="Email"
+                    autoComplete="email"
+                    error={formik.errors.email}
+                  />
+                  <TextField
+                    onChange={(e) => {
+                      formik.handleChange({
+                        target: {
+                          value: e,
+                          name: "phone",
+                        },
+                      });
+                    }}
+                    value={formik.values.phone}
+                    label="Phone"
+                    autoComplete="off"
+                    error={formik.errors.phone}
+                  />
+                  <TextField
+                    onChange={(e) => {
+                      formik.handleChange({
+                        target: {
+                          value: e,
+                          name: "businessname",
+                        },
+                      });
+                    }}
+                    value={formik.values.businessname}
+                    autoComplete="off"
+                    label="Business Name"
+                    error={formik.errors.businessname}
+                  />
+                  <TextField
+                    onChange={(e) => {
+                      formik.handleChange({
+                        target: {
+                          value: e,
+                          name: "businessurl",
+                        },
+                      });
+                    }}
+                    value={formik.values.businessurl}
+                    autoComplete="off"
+                    label="Business Website"
+                    error={formik.errors.businessurl}
+                  />
+                  <Button submit primary>
+                    Submit
+                  </Button>
+                </FormLayout>
+              </Form>
+            )}
+          </Card>
+        </Layout.Section>
+      </Layout>
+    </Page>
   );
 };
 
