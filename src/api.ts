@@ -1,4 +1,7 @@
-import { BrowserSessionStorageType, Client } from "@gadget-client/fraud-fe";
+import {
+  BrowserSessionStorageType,
+  Client,
+} from "@gadget-client/bureau-fraud-prevention";
 
 // export an instance of the API client for this application
 export const api = new Client({

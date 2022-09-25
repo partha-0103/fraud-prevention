@@ -1,5 +1,5 @@
 // import Gadget's react hooks for acce
-import { Scalars } from "@gadget-client/fraud-fe";
+import { Scalars } from "@gadget-client/bureau-fraud-prevention";
 import { useRouter } from "next/router";
 import { useAction, useFindFirst, useFindMany } from "@gadgetinc/react";
 // import the Gadget<->Shopify bindings that manage the auth process with Shopify
