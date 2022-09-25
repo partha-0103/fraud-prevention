@@ -228,7 +228,7 @@ const Home: NextPage = () => {
                       formik.touched.businessurl && formik.errors.businessurl
                     }
                   />
-                  <Button submit primary>
+                  <Button submit primary loading={formik.isSubmitting}>
                     Submit
                   </Button>
                 </FormLayout>

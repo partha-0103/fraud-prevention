@@ -3,6 +3,7 @@ import { useAction, useFindFirst } from "@gadgetinc/react";
 import { Layout, Card, Button, Page, List } from "@shopify/polaris";
 import { api } from "./api";
 export const PlanSelectorButton = (props) => {
+  const router = useRouter();
   const [result, refresh] = useFindFirst(api.shopifyShop, {
     select: {
       confirmationurl: true,
@@ -24,6 +25,14 @@ export const PlanSelectorButton = (props) => {
               <List.Item>Pincode correctness Check</List.Item>
               <List.Item>Cod order frequency</List.Item>
             </List>
+            <Button
+              onClick={() => {
+                router.push("/cancellation");
+              }}
+              disabled={fetching}
+            >
+              Cancel
+            </Button>
             <Button
               onClick={() => {
                 window.open(data?.confirmationurl);
