@@ -30,26 +30,6 @@ function AppContainer({ Component, pageProps }: AppProps) {
       */}
         {/* @ts-ignore */}
         <AppProvider i18n={enTranslations}>
-          <Frame>
-            <Navigation location="/">
-              <Navigation.Section
-                items={[
-                  {
-                    url: "/",
-                    label: "Home",
-                  },
-                  {
-                    url: "/path/to/place",
-                    label: "Orders",
-                  },
-                  {
-                    url: "/path/to/place",
-                    label: "Products",
-                  },
-                ]}
-              />
-            </Navigation>
-          </Frame>
           <Page fullWidth>
             <Component {...pageProps} />
           </Page>
