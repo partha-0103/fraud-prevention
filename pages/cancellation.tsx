@@ -1,5 +1,4 @@
 import { Layout, Page, Card, Button } from "@shopify/polaris";
-import { useRouter } from "next/router";
 const Cancellation = () => {
   return (
     <Page fullWidth>

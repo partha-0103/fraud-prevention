@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useAction, useFindFirst } from "@gadgetinc/react";
 import { Layout, Card, Button, Page, List } from "@shopify/polaris";
 import { api } from "./api";
+import { useRouter } from "next/router";
 export const PlanSelectorButton = (props) => {
   const router = useRouter();
   const [result, refresh] = useFindFirst(api.shopifyShop, {
