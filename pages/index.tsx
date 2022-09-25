@@ -50,6 +50,7 @@ const Home: NextPage = () => {
   const [phone, setPhone] = useState("");
   const [businessName, setBusinessName] = useState("");
   const [businessWebsite, setBusinessWebsite] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const router = useRouter();
   const [result, createCustomerDetails] = useAction(api.customerdetails.create);
   const { data, error, fetching } = result;
@@ -84,15 +85,26 @@ const Home: NextPage = () => {
     }
   }, [shopData, customerDetailsData]);
   const handleSubmit = () => {
-    const data = {
-      name,
-      email,
-      phone,
-      businessname: businessName,
-      businessurl: businessWebsite,
-      shopurl: shopData?.myshopifyDomain || "",
-    };
-    createCustomers(data);
+    setIsSubmitted(true);
+    if (
+      name === "" ||
+      email === "" ||
+      phone === "" ||
+      businessName === "" ||
+      businessWebsite === ""
+    ) {
+      return;
+    }
+    console.log("called");
+    // const data = {
+    //   name,
+    //   email,
+    //   phone,
+    //   businessname: businessName,
+    //   businessurl: businessWebsite,
+    //   shopurl: shopData?.myshopifyDomain || "",
+    // };
+    // createCustomers(data);
   };
 
   const createCustomers = async (
@@ -151,6 +163,7 @@ const Home: NextPage = () => {
                 label="Name"
                 onChange={handleNameChange}
                 autoComplete="off"
+                error={isSubmitted && "Name is required"}
               />
               <TextField
                 value={email}
