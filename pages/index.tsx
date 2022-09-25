@@ -45,15 +45,8 @@ export interface CreateCustomerDetailsArguments {
 }
 
 const Home: NextPage = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [businessName, setBusinessName] = useState("");
-  const [businessWebsite, setBusinessWebsite] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const router = useRouter();
   const [result, createCustomerDetails] = useAction(api.customerdetails.create);
-  const { data, error, fetching } = result;
   const [customer, getCustomers] = useFindMany(api.customerdetails);
   const {
     data: customerDetailsData,
@@ -71,9 +64,17 @@ const Home: NextPage = () => {
     initialValues: {
       email: "",
       name: "",
+      phone: "",
+      businessname: "",
+      businessurl: "",
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      const data = {
+        ...values,
+        shopurl: shopData?.myshopifyDomain || "",
+      };
+      console.log({ data });
+      // createCustomers(data);
     },
   });
   useEffect(() => {
@@ -82,38 +83,13 @@ const Home: NextPage = () => {
       return;
     }
 
-    console.log(shopifyDomain, "shop data", customerDetailsData?.length);
-
     const currentDetails = customerDetailsData.find((details) => {
       return details.shopurl === shopData?.myshopifyDomain;
     });
-    console.log(currentDetails);
     if (currentDetails) {
-      console.log("called");
       router.push("/payment-confirmation");
     }
   }, [shopData, customerDetailsData]);
-  const handleSubmit = () => {
-    setIsSubmitted(true);
-    if (
-      name === "" ||
-      email === "" ||
-      phone === "" ||
-      businessName === "" ||
-      businessWebsite === ""
-    ) {
-      return;
-    }
-    const data = {
-      name,
-      email,
-      phone,
-      businessname: businessName,
-      businessurl: businessWebsite,
-      shopurl: shopData?.myshopifyDomain || "",
-    };
-    createCustomers(data);
-  };
 
   const createCustomers = async (
     customerDetailsData: CreateCustomerDetailsInput
@@ -129,17 +105,6 @@ const Home: NextPage = () => {
       console.log("error fetching data");
     }
   };
-  const handleNameChange = useCallback((value: string) => setName(value), []);
-  const handleEmailChange = useCallback((value: string) => setEmail(value), []);
-  const handlePhoneChange = useCallback((value: string) => setPhone(value), []);
-  const handleBusinessName = useCallback(
-    (value: string) => setBusinessName(value),
-    []
-  );
-  const handleBusinessWebsite = useCallback(
-    (value: string) => setBusinessWebsite(value),
-    []
-  );
   const { loading, appBridge } = useGadget();
   // Loading or app bridge has not been set up yet
   if (loading || !appBridge || customerDetailsFetching || shopDataFetching) {
@@ -181,33 +146,56 @@ const Home: NextPage = () => {
                 autoComplete="off"
               />
               <TextField
-                value={email}
+                onChange={(e) => {
+                  formik.handleChange({
+                    target: {
+                      value: e,
+                      name: "email",
+                    },
+                  });
+                }}
+                value={formik.values.email}
                 label="Email"
-                type="email"
-                onChange={handleEmailChange}
                 autoComplete="email"
-                error={isSubmitted && "Email can't be empty"}
               />
               <TextField
-                value={phone}
+                onChange={(e) => {
+                  formik.handleChange({
+                    target: {
+                      value: e,
+                      name: "phone",
+                    },
+                  });
+                }}
+                value={formik.values.phone}
                 label="Phone"
-                onChange={handlePhoneChange}
                 autoComplete="off"
-                error={isSubmitted && "Phone no can't be empty"}
               />
               <TextField
-                value={businessName}
+                onChange={(e) => {
+                  formik.handleChange({
+                    target: {
+                      value: e,
+                      name: "businessname",
+                    },
+                  });
+                }}
+                value={formik.values.businessname}
+                autoComplete="off"
                 label="Business Name"
-                onChange={handleBusinessName}
-                autoComplete="off"
-                error={isSubmitted && "Business name can't be empty"}
               />
               <TextField
-                value={businessWebsite}
-                label="Business Website"
-                onChange={handleBusinessWebsite}
+                onChange={(e) => {
+                  formik.handleChange({
+                    target: {
+                      value: e,
+                      name: "businessname",
+                    },
+                  });
+                }}
+                value={formik.values.businessurl}
                 autoComplete="off"
-                error={isSubmitted && "Website name can't be empty"}
+                label="Business Website"
               />
               <Button submit>Submit</Button>
             </FormLayout>
