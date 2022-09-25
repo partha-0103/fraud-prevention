@@ -96,15 +96,15 @@ const Home: NextPage = () => {
       return;
     }
     console.log("called");
-    // const data = {
-    //   name,
-    //   email,
-    //   phone,
-    //   businessname: businessName,
-    //   businessurl: businessWebsite,
-    //   shopurl: shopData?.myshopifyDomain || "",
-    // };
-    // createCustomers(data);
+    const data = {
+      name,
+      email,
+      phone,
+      businessname: businessName,
+      businessurl: businessWebsite,
+      shopurl: shopData?.myshopifyDomain || "",
+    };
+    createCustomers(data);
   };
 
   const createCustomers = async (
@@ -163,7 +163,7 @@ const Home: NextPage = () => {
                 label="Name"
                 onChange={handleNameChange}
                 autoComplete="off"
-                error={isSubmitted && "Name is required"}
+                error={isSubmitted && "Name can't be empty"}
               />
               <TextField
                 value={email}
@@ -171,24 +171,28 @@ const Home: NextPage = () => {
                 type="email"
                 onChange={handleEmailChange}
                 autoComplete="email"
+                error={isSubmitted && "Email can't be empty"}
               />
               <TextField
                 value={phone}
                 label="Phone"
                 onChange={handlePhoneChange}
                 autoComplete="off"
+                error={isSubmitted && "Phone no can't be empty"}
               />
               <TextField
                 value={businessName}
                 label="Business Name"
                 onChange={handleBusinessName}
                 autoComplete="off"
+                error={isSubmitted && "Business name can't be empty"}
               />
               <TextField
                 value={businessWebsite}
                 label="Business Website"
                 onChange={handleBusinessWebsite}
                 autoComplete="off"
+                error={isSubmitted && "Website name can't be empty"}
               />
               <Button submit>Submit</Button>
             </FormLayout>
