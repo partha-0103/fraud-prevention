@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@gadget-client/bureau-fraud-prevention": "^1.2113.0",
+    "@gadget-client/bureau-fraud-prevention": "^1.2115.0",
     "@gadget-client/fraud-fe": "^1.616.0",
     "@gadget-client/test-fraud-app": "^1.10.0",
     "@gadgetinc/react": "^0.7.1",
