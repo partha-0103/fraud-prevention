@@ -94,7 +94,7 @@ const Home: NextPage = () => {
         ...values,
         shopurl: shopData?.myshopifyDomain || "",
       };
-      // createCustomers(data);
+      createCustomers(data);
     },
     validationSchema: SignupSchema,
   });
