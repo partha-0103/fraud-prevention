@@ -51,9 +51,9 @@ const Home: NextPage = () => {
   const [businessName, setBusinessName] = useState("");
   const [businessWebsite, setBusinessWebsite] = useState("");
   const router = useRouter();
-  const [result, createCustomerDetails] = useAction(api.customerDetails.create);
+  const [result, createCustomerDetails] = useAction(api.customerdetails.create);
   const { data, error, fetching } = result;
-  const [customer, getCustomers] = useFindMany(api.customerDetails);
+  const [customer, getCustomers] = useFindMany(api.customerdetails);
   const {
     data: customerDetailsData,
     error: customerDataError,
