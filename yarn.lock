@@ -32,10 +32,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@gadget-client/bureau-fraud-prevention@^1.2115.0":
-  version "1.2115.0"
-  resolved "https://registry.gadget.dev/npm/_/tarball/3244/5313/1690#b527f1ff86c0fd55dd978c8c95ce3629ac65e8e9"
-  integrity sha1-tSfx/4bA/VXdl4yMlc42Kaxl6Ok=
+"@gadget-client/bureau-fraud-prevention@^1.2256.0":
+  version "1.2256.0"
+  resolved "https://registry.gadget.dev/npm/_/tarball/3244/5313/1704#bdefc803a8bfcba88e334f9d545740c57a1b0157"
+  integrity sha1-ve/IA6i/y6iOM0+dVFdAxXobAVc=
   dependencies:
     "@gadgetinc/api-client-core" "0.9.0"
 
