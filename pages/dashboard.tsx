@@ -25,26 +25,28 @@ const Dashboard = () => {
     );
   }
   return (
-    <Page fullWidth title="Metrics View Of Dashboard">
-      <Layout>
-        <Banner title="" status="info" onDismiss={() => {}}>
-          <p>
-            Interested in RTO Guarantee - 100% protection against RTO Losses?
-            ontact support@bureau.id
-          </p>
-        </Banner>
-        <Layout.Section>
-          <Card title="Total no of orders processed" sectioned>
-            {getTotalNoOfOrders()}
-          </Card>
-        </Layout.Section>
-        <Layout.Section>
-          <Card title="Total No of orders flagged" sectioned>
-            {getTotalNoOFlaggedOrders()}
-          </Card>
-        </Layout.Section>
-      </Layout>
-    </Page>
+    <>
+      <Banner title="" status="info" onDismiss={() => {}}>
+        <p>
+          Interested in RTO Guarantee - 100% protection against RTO Losses?
+          ontact support@bureau.id
+        </p>
+      </Banner>
+      <Page fullWidth title="Metrics View Of Dashboard">
+        <Layout>
+          <Layout.Section>
+            <Card title="Total no of orders processed" sectioned>
+              {getTotalNoOfOrders()}
+            </Card>
+          </Layout.Section>
+          <Layout.Section>
+            <Card title="Total No of orders flagged" sectioned>
+              {getTotalNoOFlaggedOrders()}
+            </Card>
+          </Layout.Section>
+        </Layout>
+      </Page>
+    </>
   );
 };
 
