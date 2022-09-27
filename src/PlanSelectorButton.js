@@ -33,8 +33,9 @@ export const PlanSelectorButton = (props) => {
     const currentStore = subscriptionData.find((sub) =>
       sub.returnUrl.includes(data.myshopifyDomain)
     );
-    console.log(currentStore);
+
     if (currentStore) {
+      router.push("/dashboard");
       setShow(false);
     }
   }, [data, subscriptionData]);
