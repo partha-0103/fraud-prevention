@@ -9,7 +9,7 @@ const Navbar = () => {
       <Link href="/dashboard">
         <div
           className={
-            router.pathname === "dashboard" ? "nav-link active-nav" : "nav-link"
+            router.pathname === "dashboard" ? "nav-item active-nav" : "nav-item"
           }
         >
           Dasshboard |
@@ -18,7 +18,7 @@ const Navbar = () => {
       <Link href="/">
         <div
           className={
-            router.pathname === "" ? "nav-link active-nav" : "nav-link"
+            router.pathname === "" ? "nav-item active-nav" : "nav-item"
           }
         >
           Settings |
@@ -28,8 +28,8 @@ const Navbar = () => {
         <div
           className={
             router.pathname === "payment-confirmation"
-              ? "nav-link active-nav"
-              : "nav-link"
+              ? "nav-item active-nav"
+              : "nav-item"
           }
         >
           Billing

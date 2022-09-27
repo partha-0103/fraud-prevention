@@ -24,7 +24,7 @@ a {
     background: black;
   }
 }
-.nav {
+/* .nav {
   border: 2px solid grey;
   width: 500px !important;
   font-size: medium;
@@ -34,16 +34,25 @@ a {
   display: inline-block;
   list-style: none;
   padding: 0 40px; /* "0" sets top and bottom padding to none */
-}
+/* } */
 
 /* :hover allows you change the background color of the nav items when you mouse over them. Play around with the transition value to change the speed of the hover transition. */
 
 /* This rule is applied to the link <a> tag. It lets you turn off the link underline and set the link text color. */
-.nav-link {
+/* .nav-link {
   text-decoration: none;
-}
+} */
 
-.active-nav {
+/* .active-nav {
   text-decoration: none;
   font-weight: 700;
+} */
+.nav {
+  display: flex;
+  border: 2px solid gray;
+  width: 500px;
+}
+
+.nav-item {
+  padding: 10px;
 }
