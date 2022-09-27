@@ -25,7 +25,8 @@ a {
   }
 }
 .nav {
-  border: 1px solid;
+  border: 2px solid grey;
+  width: 300px !important;
 }
 .nav li {
   display: inline-block;
@@ -42,5 +43,5 @@ a {
 
 .active-nav {
   text-decoration: none;
-  color: rgb(227, 22, 22);
+  color: black;
 }
