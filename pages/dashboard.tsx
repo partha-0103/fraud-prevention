@@ -1,5 +1,5 @@
 import { useFindMany, useFindFirst } from "@gadgetinc/react";
-import { Card, Layout, Spinner, List, Page } from "@shopify/polaris";
+import { Card, Layout, Spinner, Page, Banner } from "@shopify/polaris";
 import { api } from "../src/api";
 const Dashboard = () => {
   const [result, refresh] = useFindMany(api.dashboard);
@@ -27,6 +27,12 @@ const Dashboard = () => {
   return (
     <Page fullWidth title="Metrics View Of Dashboard">
       <Layout>
+        <Banner title="" status="info" onDismiss={() => {}}>
+          <p>
+            Interested in RTO Guarantee - 100% protection against RTO Losses?
+            ontact support@bureau.id
+          </p>
+        </Banner>
         <Layout.Section>
           <Card title="Total no of orders processed" sectioned>
             {getTotalNoOfOrders()}
