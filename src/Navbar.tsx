@@ -10,7 +10,9 @@ const Navbar = () => {
       <Link href="/dashboard">
         <div
           className={
-            router.pathname === "dashboard" ? "nav-item active-nav" : "nav-item"
+            router.pathname === "/dashboard"
+              ? "nav-item active-nav"
+              : "nav-item"
           }
         >
           Dasshboard |
@@ -28,7 +30,7 @@ const Navbar = () => {
       <Link href="/payment-confirmation">
         <div
           className={
-            router.pathname === "payment-confirmation"
+            router.pathname === "/payment-confirmation"
               ? "nav-item active-nav"
               : "nav-item"
           }
