@@ -2,21 +2,15 @@ import {
   AppType,
   Provider as GadgetProvider,
 } from "@gadgetinc/react-shopify-app-bridge";
-import { AppProvider, Page, Navigation, Frame } from "@shopify/polaris";
-import { HomeMinor, OrdersMinor, ProductsMinor } from "@shopify/polaris-icons";
+import { AppProvider, Page } from "@shopify/polaris";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "@shopify/polaris/build/esm/styles.css";
 import enTranslations from "@shopify/polaris/locales/en.json";
 import type { AppProps } from "next/app";
 import React from "react";
 import { api } from "../src/api";
 import "../styles/globals.css";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import Navbar from "../src/Navbar";
 
 function AppContainer({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
@@ -36,14 +30,7 @@ function AppContainer({ Component, pageProps }: AppProps) {
         {/* @ts-ignore */}
         <AppProvider i18n={enTranslations}>
           <Page fullWidth>
-            <Box sx={{ flexGrow: 1 }}>
-              <AppBar position="static">
-                <Toolbar>
-                  <Button color="inherit">Login</Button>
-                  <Button color="inherit">Login</Button>
-                </Toolbar>
-              </AppBar>
-            </Box>
+            <Navbar />
             <Component {...pageProps} />
           </Page>
         </AppProvider>
