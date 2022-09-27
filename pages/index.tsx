@@ -153,65 +153,71 @@ const Home: NextPage = () => {
             {!loading && (
               <Form onSubmit={formik.handleSubmit}>
                 <FormLayout>
-                  <TextField
-                    name="name"
-                    onChange={(e) => {
-                      formik.handleChange({
-                        target: {
-                          value: e,
-                          name: "name",
-                        },
-                      });
-                    }}
-                    value={formik.values.name}
-                    label="Name"
-                    autoComplete="off"
-                    error={formik.touched.name && formik.errors.name}
-                  />
-                  <TextField
-                    onChange={(e) => {
-                      formik.handleChange({
-                        target: {
-                          value: e,
-                          name: "email",
-                        },
-                      });
-                    }}
-                    value={formik.values.email}
-                    label="Email"
-                    autoComplete="email"
-                    error={formik.touched.email && formik.errors.email}
-                  />
-                  <TextField
-                    onChange={(e) => {
-                      formik.handleChange({
-                        target: {
-                          value: e,
-                          name: "phone",
-                        },
-                      });
-                    }}
-                    value={formik.values.phone}
-                    label="Phone"
-                    autoComplete="off"
-                    error={formik.touched.phone && formik.errors.phone}
-                  />
-                  <TextField
-                    onChange={(e) => {
-                      formik.handleChange({
-                        target: {
-                          value: e,
-                          name: "businessname",
-                        },
-                      });
-                    }}
-                    value={formik.values.businessname}
-                    autoComplete="off"
-                    label="Business Name"
-                    error={
-                      formik.touched.businessname && formik.errors.businessname
-                    }
-                  />
+                  <FormLayout.Group>
+                    <TextField
+                      name="name"
+                      onChange={(e) => {
+                        formik.handleChange({
+                          target: {
+                            value: e,
+                            name: "name",
+                          },
+                        });
+                      }}
+                      value={formik.values.name}
+                      label="Name"
+                      autoComplete="off"
+                      error={formik.touched.name && formik.errors.name}
+                    />
+                    <TextField
+                      onChange={(e) => {
+                        formik.handleChange({
+                          target: {
+                            value: e,
+                            name: "email",
+                          },
+                        });
+                      }}
+                      value={formik.values.email}
+                      label="Email"
+                      autoComplete="email"
+                      error={formik.touched.email && formik.errors.email}
+                    />
+                  </FormLayout.Group>
+                  <FormLayout.Group>
+                    <TextField
+                      onChange={(e) => {
+                        formik.handleChange({
+                          target: {
+                            value: e,
+                            name: "phone",
+                          },
+                        });
+                      }}
+                      value={formik.values.phone}
+                      label="Phone"
+                      autoComplete="off"
+                      error={formik.touched.phone && formik.errors.phone}
+                    />
+                    <TextField
+                      onChange={(e) => {
+                        formik.handleChange({
+                          target: {
+                            value: e,
+                            name: "businessname",
+                          },
+                        });
+                      }}
+                      value={formik.values.businessname}
+                      autoComplete="off"
+                      label="Business Name"
+                      error={
+                        formik.touched.businessname &&
+                        formik.errors.businessname
+                      }
+                    />
+                  </FormLayout.Group>
+
                   <TextField
                     onChange={(e) => {
                       formik.handleChange({
