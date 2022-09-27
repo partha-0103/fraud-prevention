@@ -24,11 +24,12 @@ a {
     background: black;
   }
 }
+.nav {
+  border: 1px solid;
+}
 .nav li {
   display: inline-block;
   list-style: none;
-  height: 60px; /* should be the same as line-height */
-  line-height: 60px; /* should be the same as height */
   padding: 0 40px; /* "0" sets top and bottom padding to none */
 }
 
@@ -41,5 +42,5 @@ a {
 
 .active-nav {
   text-decoration: none;
-  color: black;
+  color: rgb(227, 22, 22);
 }
