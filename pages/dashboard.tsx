@@ -17,24 +17,22 @@ const Dashboard = () => {
   function getTotalNoOFlaggedOrders() {
     return data?.find((d) => d.shop === shopData?.myshopifyDomain)?.totalorders;
   }
-
+  if (fetching || shopDataFetching) {
+    return (
+      <Page>
+        <Spinner />
+      </Page>
+    );
+  }
   return (
-    <Page fullWidth>
+    <Page fullWidth title="Metrics View Of Dashboard">
       <Layout>
         <Layout.Section>
-          <Card title="Matrics view of Dashboard" sectioned>
-            {fetching || shopDataFetching ? (
-              <Spinner />
-            ) : (
-              <List type="bullet">
-                <List.Item>
-                  Total no of orders processed: {getTotalNoOfOrders()}
-                </List.Item>
-                <List.Item>
-                  Total No of orders flagged: {getTotalNoOFlaggedOrders()}
-                </List.Item>
-              </List>
-            )}
+          <Card title="Total no of orders processed" sectioned>
+            {getTotalNoOfOrders()}
+          </Card>
+          <Card title="Total No of orders flagged" sectioned>
+            {getTotalNoOFlaggedOrders()}
           </Card>
         </Layout.Section>
       </Layout>
