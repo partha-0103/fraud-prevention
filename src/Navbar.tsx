@@ -8,35 +8,35 @@ const Navbar = () => {
     <div className="nav">
       <ul>
         <Link href="/dashboard">
-          <a
+          <li
             className={
               router.pathname === "dashboard"
                 ? "nav-link active-nav"
                 : "nav-link"
             }
           >
-            <li>Dasshboard |</li>
-          </a>
+            Dasshboard |
+          </li>
         </Link>
         <Link href="/">
-          <a
+          <li
             className={
               router.pathname === "" ? "nav-link active-nav" : "nav-link"
             }
           >
-            <li>Settings |</li>
-          </a>
+            Settings |
+          </li>
         </Link>
         <Link href="/payment-confirmation">
-          <a
+          <li
             className={
               router.pathname === "payment-confirmation"
                 ? "nav-link active-nav"
                 : "nav-link"
             }
           >
-            <li>Billing</li>
-          </a>
+            Billing
+          </li>
         </Link>
       </ul>
     </div>
