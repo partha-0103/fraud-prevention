@@ -29,7 +29,7 @@ const Dashboard = () => {
       <Banner title="" status="info" onDismiss={() => {}}>
         <p>
           Interested in RTO Guarantee - 100% protection against RTO Losses?
-          ontact support@bureau.id
+          Contact support@bureau.id
         </p>
       </Banner>
       <Page fullWidth title="Metrics View Of Dashboard">
