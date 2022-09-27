@@ -33,13 +33,8 @@ a {
 }
 
 /* :hover allows you change the background color of the nav items when you mouse over them. Play around with the transition value to change the speed of the hover transition. */
-.nav li:hover {
-  background: red;
-  transition: background 0.3s;
-}
 
 /* This rule is applied to the link <a> tag. It lets you turn off the link underline and set the link text color. */
 .nav-link {
-  color: #fff;
   text-decoration: none;
 }
