@@ -24,7 +24,7 @@ export const PlanSelectorButton = (props) => {
   const [subscriptionResult, subscriptionRefresh] = useFindMany(
     api.shopifyAppSubscription
   );
-  const { data: subscriptionData } = resubscriptionResultsult;
+  const { data: subscriptionData } = subscriptionResult;
 
   useEffect(() => {
     if (!data || !subscriptionData) {
