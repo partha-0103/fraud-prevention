@@ -38,7 +38,7 @@ const Dashboard = () => {
             {getTotalNoOfOrders()}
           </Card>
         </Layout.Section>
-        <Layout.Section secondary>
+        <Layout.Section>
           <Card title="Total No of orders flagged" sectioned>
             {getTotalNoOFlaggedOrders()}
           </Card>
