@@ -3,25 +3,25 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <nav>
+    <div className="nav">
       <ul>
         <Link href="/dashboard">
-          <a>
+          <a className="nav-link">
             <li>Dasshboard</li>
           </a>
         </Link>
         <Link href="/">
-          <a>
+          <a className="nav-link">
             <li>Settings</li>
           </a>
         </Link>
         <Link href="/blog">
-          <a>
+          <a className="nav-link">
             <li>Billing</li>
           </a>
         </Link>
       </ul>
-    </nav>
+    </div>
   );
 };
 
