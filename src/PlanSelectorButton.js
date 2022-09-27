@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { useAction, useFindFirst } from "@gadgetinc/react";
+import { useFindMany, useFindFirst } from "@gadgetinc/react";
 import {
   Layout,
   Card,
