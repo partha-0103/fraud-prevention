@@ -36,12 +36,12 @@ const Dashboard = () => {
         <Layout>
           <Layout.Section secondary>
             <Card title="Total no of orders processed" sectioned>
-              {getTotalNoOfOrders()}
+              <h3>{getTotalNoOfOrders()}</h3>
             </Card>
           </Layout.Section>
           <Layout.Section secondary>
             <Card title="Total No of orders flagged" sectioned>
-              {getTotalNoOFlaggedOrders()}
+              <h3>{getTotalNoOFlaggedOrders()}</h3>
             </Card>
           </Layout.Section>
         </Layout>
