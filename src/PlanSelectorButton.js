@@ -49,7 +49,7 @@ export const PlanSelectorButton = (props) => {
             <br></br>
             <p>Services Included</p>
             <List type="bullet">
-              <List.Item>Address COmpleteness Scoring</List.Item>
+              <List.Item>Address Completeness Scoring</List.Item>
               <List.Item>RTO risk flagging Red/Green</List.Item>
               <List.Item>Rules Customization for your business</List.Item>
               <List.Item>Pincode correctness Check</List.Item>
