@@ -11,13 +11,33 @@ import {
 import { api } from "./api";
 import { useRouter } from "next/router";
 export const PlanSelectorButton = (props) => {
+  const [show, setShow] = useState(true);
   const router = useRouter();
   const [result, refresh] = useFindFirst(api.shopifyShop, {
     select: {
       confirmationurl: true,
+      myshopifyDomain: true,
     },
   });
   const { data, error, fetching } = result;
+
+  const [subscriptionResult, subscriptionRefresh] = useFindMany(
+    api.shopifyAppSubscription
+  );
+  const { data: subscriptionData } = resubscriptionResultsult;
+
+  useEffect(() => {
+    if (!data || !subscriptionData) {
+      return;
+    }
+    const currentStore = subscriptionData.find((sub) =>
+      sub.returnUrl.includes(result.myshopifyDomain)
+    );
+    console.log(currentStore);
+    if (currentStore) {
+      setShow(false);
+    }
+  }, [data, subscriptionData]);
 
   return (
     <Page fullWidth>
