@@ -25,6 +25,8 @@ export const PlanSelectorButton = (props) => {
         <Layout.Section>
           <Card sectioned title="Product Pricing Information">
             <p>INR 10 per order</p>
+            <br></br>
+            <br></br>
             <p>Services Included</p>
             <List type="bullet">
               <List.Item>Address COmpleteness Scoring</List.Item>
@@ -33,6 +35,7 @@ export const PlanSelectorButton = (props) => {
               <List.Item>Pincode correctness Check</List.Item>
               <List.Item>Cod order frequency</List.Item>
             </List>
+            <br></br>
             <ButtonGroup>
               <Button
                 onClick={() => {
