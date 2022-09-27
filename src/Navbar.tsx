@@ -6,39 +6,35 @@ const Navbar = () => {
   const router = useRouter();
   return (
     <div className="nav">
-      <ul>
-        <Link href="/dashboard">
-          <li
-            className={
-              router.pathname === "dashboard"
-                ? "nav-link active-nav"
-                : "nav-link"
-            }
-          >
-            Dasshboard |
-          </li>
-        </Link>
-        <Link href="/">
-          <li
-            className={
-              router.pathname === "" ? "nav-link active-nav" : "nav-link"
-            }
-          >
-            Settings |
-          </li>
-        </Link>
-        <Link href="/payment-confirmation">
-          <li
-            className={
-              router.pathname === "payment-confirmation"
-                ? "nav-link active-nav"
-                : "nav-link"
-            }
-          >
-            Billing
-          </li>
-        </Link>
-      </ul>
+      <Link href="/dashboard">
+        <div
+          className={
+            router.pathname === "dashboard" ? "nav-link active-nav" : "nav-link"
+          }
+        >
+          Dasshboard |
+        </div>
+      </Link>
+      <Link href="/">
+        <div
+          className={
+            router.pathname === "" ? "nav-link active-nav" : "nav-link"
+          }
+        >
+          Settings |
+        </div>
+      </Link>
+      <Link href="/payment-confirmation">
+        <div
+          className={
+            router.pathname === "payment-confirmation"
+              ? "nav-link active-nav"
+              : "nav-link"
+          }
+        >
+          Billing
+        </div>
+      </Link>
     </div>
   );
 };
