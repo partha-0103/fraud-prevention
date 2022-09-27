@@ -27,6 +27,8 @@ a {
 .nav {
   border: 2px solid grey;
   width: 500px !important;
+  font-size: medium;
+  line-height: 0;
 }
 .nav li {
   display: inline-block;
@@ -43,6 +45,5 @@ a {
 
 .active-nav {
   text-decoration: none;
-  color: black;
-  font-weight: 300;
+  font-weight: 700;
 }

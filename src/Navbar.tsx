@@ -15,7 +15,7 @@ const Navbar = () => {
                 : "nav-link"
             }
           >
-            <li>Dasshboard</li>
+            <li>Dasshboard |</li>
           </a>
         </Link>
         <Link href="/">
@@ -24,7 +24,7 @@ const Navbar = () => {
               router.pathname === "" ? "nav-link active-nav" : "nav-link"
             }
           >
-            <li>Settings</li>
+            <li>Settings |</li>
           </a>
         </Link>
         <Link href="/payment-confirmation">
