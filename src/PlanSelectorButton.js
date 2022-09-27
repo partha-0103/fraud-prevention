@@ -31,7 +31,7 @@ export const PlanSelectorButton = (props) => {
       return;
     }
     const currentStore = subscriptionData.find((sub) =>
-      sub.returnUrl.includes(result.myshopifyDomain)
+      sub.returnUrl.includes(data.myshopifyDomain)
     );
     console.log(currentStore);
     if (currentStore) {

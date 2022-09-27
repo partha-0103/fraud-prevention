@@ -11,7 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
-    "@gadget-client/bureau-fraud-prevention": "^1.2748.0",
+    "@gadget-client/bureau-fraud-prevention": "^1.2752.0",
     "@gadget-client/fraud-fe": "^1.616.0",
     "@gadget-client/test-fraud-app": "^1.10.0",
     "@gadgetinc/react": "^0.7.1",

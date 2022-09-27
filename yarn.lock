@@ -194,10 +194,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@gadget-client/bureau-fraud-prevention@^1.2748.0":
-  version "1.2748.0"
-  resolved "https://registry.gadget.dev/npm/_/tarball/3244/5313/1724#73bd30a9a834e92763b9c067dcfb8414ee4f7e55"
-  integrity sha1-c70wqag06SdjucBn3PuEFO5PflU=
+"@gadget-client/bureau-fraud-prevention@^1.2752.0":
+  version "1.2752.0"
+  resolved "https://registry.gadget.dev/npm/_/tarball/3244/5313/1726#b67dbe41fd2eda8596b1d74bb539486d3f6aa5bd"
+  integrity sha1-tn2+Qf0u2oWWsddLtTlIbT9qpb0=
   dependencies:
     "@gadgetinc/api-client-core" "0.9.0"
 
