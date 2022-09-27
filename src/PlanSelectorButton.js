@@ -56,26 +56,34 @@ export const PlanSelectorButton = (props) => {
               <List.Item>Cod order frequency</List.Item>
             </List>
             <br></br>
-            <ButtonGroup>
-              <Button
-                onClick={() => {
-                  router.push("/cancellation");
-                }}
-                disabled={fetching}
-              >
-                Cancel
-              </Button>
-              <Button
-                onClick={() => {
-                  window.open(data?.confirmationurl);
-                  window.close();
-                }}
-                disabled={fetching}
-                primary
-              >
-                Accept
-              </Button>
-            </ButtonGroup>
+            {show ? (
+              <ButtonGroup>
+                <Button
+                  onClick={() => {
+                    router.push("/cancellation");
+                  }}
+                  disabled={fetching}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  onClick={() => {
+                    window.open(data?.confirmationurl);
+                    window.close();
+                  }}
+                  disabled={fetching}
+                  primary
+                >
+                  Accept
+                </Button>
+              </ButtonGroup>
+            ) : (
+              <>
+                <br></br>
+                <br></br>
+                <p>You have already subscribed to the plan</p>
+              </>
+            )}
           </Card>
         </Layout.Section>
       </Layout>
