@@ -78,7 +78,7 @@ const SignupSchema = Yup.object().shape({
 
 const Home: NextPage = () => {
   /* @ts-ignore */
-  const { setShowNavigation } = useNavigationStore();
+  const { setShowNavigation, show: showNavigation } = useNavigationStore();
   const [show, setShow] = useState(false);
   const router = useRouter();
   const [result, createCustomerDetails] = useAction(api.customerdetails.create);
@@ -124,8 +124,15 @@ const Home: NextPage = () => {
     } else {
       setShow(true);
     }
-    setShowNavigation(true);
   }, [shopData, customerDetailsData]);
+
+  useEffect(() => {
+    const shopifyDomain = shopData?.myshopifyDomain;
+    if (!shopifyDomain || showNavigation) {
+      return;
+    }
+    setShowNavigation(true);
+  }, [shopData]);
 
   const createCustomers = async (
     customerDetailsData: CreateCustomerDetailsInput
