@@ -70,11 +70,8 @@ const SignupSchema = Yup.object().shape({
     .required("Required"),
   phone: Yup.number()
     .transform((value, originalValue) => {
-      return originalValue.trim();
+      return Number(originalValue.trim());
     })
-    .transform((value, originalValue) =>
-      /\s/.test(originalValue) ? NaN : value
-    )
     .min(10, "Invalid phone no")
     .required("This field is requried"),
   email: Yup.string()
