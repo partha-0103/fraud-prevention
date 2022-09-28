@@ -113,12 +113,12 @@ const Home: NextPage = () => {
   });
 
   useEffect(() => {
-    console.log(shopData, customerDetailsFetching, shopData);
-    if (shopDataFetching || customerDetailsFetching) {
+    console.log(customerDetailsFetching, shopData);
+    if (!customerDetailsData?.length) {
       return;
     }
     setShowNavigation(true);
-  }, [shopDataFetching, customerDetailsFetching]);
+  }, [customerDetailsData]);
   useEffect(() => {
     const shopifyDomain = shopData?.myshopifyDomain;
     if (!customerDetailsData?.length || shopDataFetching) {
