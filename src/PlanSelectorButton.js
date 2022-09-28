@@ -7,11 +7,13 @@ import {
   Page,
   List,
   ButtonGroup,
+  Spinner,
 } from "@shopify/polaris";
 import { api } from "./api";
 import { useRouter } from "next/router";
 export const PlanSelectorButton = (props) => {
   const [show, setShow] = useState(true);
+  const [showSpinner, setShowSpinner] = useState(true);
   const router = useRouter();
   const [result, refresh] = useFindFirst(api.shopifyShop, {
     select: {
@@ -37,8 +39,14 @@ export const PlanSelectorButton = (props) => {
     if (currentStore) {
       router.push("/dashboard");
       setShow(false);
+    } else {
+      setShowSpinner(false);
     }
   }, [data, subscriptionData]);
+
+  if (showSpinner) {
+    return <Spinner />;
+  }
 
   return (
     <Page fullWidth>
