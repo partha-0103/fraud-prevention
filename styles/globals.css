@@ -62,3 +62,7 @@ a {
   font-weight: 700;
   color: #00a0ac;
 }
+
+.bold {
+  font-weight: bold;
+}
