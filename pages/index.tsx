@@ -113,6 +113,9 @@ const Home: NextPage = () => {
   });
 
   useEffect(() => {
+    if (shopDataFetching) {
+      return;
+    }
     setShowNavigation(true);
   }, [shopDataFetching]);
   useEffect(() => {
