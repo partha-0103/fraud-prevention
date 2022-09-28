@@ -88,7 +88,7 @@ const Home: NextPage = () => {
     error: customerDataError,
     fetching: customerDetailsFetching,
   } = customer;
-
+  console.log(setShowNavigation);
   const [shopResult, refresh] = useFindFirst(api.shopifyShop, {
     select: {
       myshopifyDomain: true,
