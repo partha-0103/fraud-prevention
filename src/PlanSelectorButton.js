@@ -70,14 +70,6 @@ export const PlanSelectorButton = (props) => {
               <ButtonGroup>
                 <Button
                   onClick={() => {
-                    router.push("/cancellation");
-                  }}
-                  disabled={fetching}
-                >
-                  Cancel
-                </Button>
-                <Button
-                  onClick={() => {
                     window.open(data?.confirmationurl);
                     window.close();
                   }}

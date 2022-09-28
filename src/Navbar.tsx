@@ -35,7 +35,7 @@ const Navbar = () => {
               : "nav-item"
           }
         >
-          Dasshboard
+          Dashboard
         </div>
       </Link>
     </div>
