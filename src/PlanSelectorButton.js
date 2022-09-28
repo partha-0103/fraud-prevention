@@ -53,7 +53,7 @@ export const PlanSelectorButton = (props) => {
       <Layout>
         <Layout.Section>
           <Card sectioned title="Product Pricing Information">
-            <p>INR 10 per order</p>
+            <p>USD 0.12 per order</p>
             <br></br>
             <br></br>
             <p>Services Included</p>
