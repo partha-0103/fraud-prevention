@@ -66,6 +66,7 @@ const SignupSchema = Yup.object().shape({
 });
 
 const Home: NextPage = () => {
+  const [show, setShow] = useState(false);
   const router = useRouter();
   const [result, createCustomerDetails] = useAction(api.customerdetails.create);
   const [customer, getCustomers] = useFindMany(api.customerdetails);
@@ -109,6 +110,8 @@ const Home: NextPage = () => {
     });
     if (currentDetails) {
       router.push("/payment-confirmation");
+    } else {
+      setShow(true);
     }
   }, [shopData, customerDetailsData]);
 
@@ -128,7 +131,13 @@ const Home: NextPage = () => {
   };
   const { loading, appBridge } = useGadget();
   // Loading or app bridge has not been set up yet
-  if (loading || !appBridge || customerDetailsFetching || shopDataFetching) {
+  if (
+    loading ||
+    !appBridge ||
+    customerDetailsFetching ||
+    shopDataFetching ||
+    !show
+  ) {
     return <Spinner />;
   }
 
