@@ -55,14 +55,9 @@ const Dashboard = () => {
           <Layout.Section secondary>
             <Card title="Total no of orders flagged" sectioned>
               <Stack alignment="center">
-                <p
-                  style={{
-                    fontSize: "2.625rem",
-                    color: "red",
-                  }}
-                >
+                <DisplayText size="extraLarge">
                   {getTotalNoOFlaggedOrders()}
-                </p>
+                </DisplayText>
               </Stack>
             </Card>
           </Layout.Section>
