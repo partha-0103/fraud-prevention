@@ -24,7 +24,7 @@ const Navbar = () => {
               : "nav-item"
           }
         >
-          Billing
+          Billing |
         </div>
       </Link>
       <Link href="/dashboard">
@@ -35,7 +35,7 @@ const Navbar = () => {
               : "nav-item"
           }
         >
-          Dasshboard |
+          Dasshboard
         </div>
       </Link>
     </div>
