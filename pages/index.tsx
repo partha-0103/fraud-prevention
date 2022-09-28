@@ -50,7 +50,8 @@ const SignupSchema = Yup.object().shape({
   name: Yup.string()
     .min(1, "Too Short!")
     .max(50, "Too Long!")
-    .required("Required"),
+    .required("Required")
+    .matches(/^(\S+$)/g, "* This field cannot contain only blankspaces"),
   businessname: Yup.string()
     .min(1, "Too Short!")
     .max(50, "Too Long!")
