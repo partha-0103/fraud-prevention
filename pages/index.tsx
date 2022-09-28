@@ -117,7 +117,7 @@ const Home: NextPage = () => {
     if (!customerDetailsData?.length || shopDataFetching) {
       return;
     }
-
+    setShowNavigation(true);
     const currentDetails = customerDetailsData.find((details) => {
       return details.shopurl === shopData?.myshopifyDomain;
     });
@@ -127,10 +127,6 @@ const Home: NextPage = () => {
       setShow(true);
     }
   }, [shopData, customerDetailsData]);
-
-  useEffect(() => {
-    setShowNavigation(true);
-  }, []);
 
   const createCustomers = async (
     customerDetailsData: CreateCustomerDetailsInput
