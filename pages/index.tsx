@@ -51,19 +51,27 @@ const SignupSchema = Yup.object().shape({
     .min(1, "Too Short!")
     .max(50, "Too Long!")
     .required("Required")
-    .matches(/^(\S+$)/g, "* This field cannot contain only blankspaces"),
+    .matches(/^(\S+$)/g, "This field cannot contain only blankspaces"),
   businessname: Yup.string()
     .min(1, "Too Short!")
     .max(50, "Too Long!")
+    .matches(/^(\S+$)/g, "This field cannot contain only blankspaces")
     .required("Required"),
   businessurl: Yup.string()
     .min(1, "Too Short!")
     .max(50, "Too Long!")
+    .matches(/^(\S+$)/g, "This field cannot contain only blankspaces")
     .required("Required"),
   phone: Yup.number()
+    .transform((value, originalValue) =>
+      /\s/.test(originalValue) ? NaN : value
+    )
     .min(10, "Invalid phone no")
     .required("This field is requried"),
-  email: Yup.string().email("Invalid email").required("Required"),
+  email: Yup.string()
+    .email("Invalid email")
+    .matches(/^(\S+$)/g, "This field cannot contain only blankspaces")
+    .required("Required"),
 });
 
 const Home: NextPage = () => {
