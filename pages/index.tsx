@@ -88,7 +88,6 @@ const Home: NextPage = () => {
     error: customerDataError,
     fetching: customerDetailsFetching,
   } = customer;
-  console.log(setShowNavigation);
   const [shopResult, refresh] = useFindFirst(api.shopifyShop, {
     select: {
       myshopifyDomain: true,
@@ -112,12 +111,15 @@ const Home: NextPage = () => {
     },
     validationSchema: SignupSchema,
   });
+
+  useEffect(() => {
+    setShowNavigation(true);
+  }, [shopDataFetching]);
   useEffect(() => {
     const shopifyDomain = shopData?.myshopifyDomain;
     if (!customerDetailsData?.length || shopDataFetching) {
       return;
     }
-    setShowNavigation(true);
     const currentDetails = customerDetailsData.find((details) => {
       return details.shopurl === shopData?.myshopifyDomain;
     });
