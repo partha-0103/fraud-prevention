@@ -6,6 +6,7 @@ import {
   Page,
   Banner,
   DisplayText,
+  Stack,
 } from "@shopify/polaris";
 import { api } from "../src/api";
 const Dashboard = () => {
@@ -44,16 +45,20 @@ const Dashboard = () => {
         <Layout>
           <Layout.Section secondary>
             <Card title="Total No of orders processed" sectioned>
-              <DisplayText size="extraLarge">
-                {getTotalNoOfOrders()}
-              </DisplayText>
+              <Stack alignment="center">
+                <DisplayText size="extraLarge">
+                  {getTotalNoOfOrders()}
+                </DisplayText>
+              </Stack>
             </Card>
           </Layout.Section>
           <Layout.Section secondary>
             <Card title="Total No of orders flagged" sectioned>
-              <DisplayText size="extraLarge">
-                {getTotalNoOFlaggedOrders()}
-              </DisplayText>
+              <Stack alignment="center">
+                <DisplayText size="extraLarge">
+                  {getTotalNoOFlaggedOrders()}
+                </DisplayText>
+              </Stack>
             </Card>
           </Layout.Section>
         </Layout>
