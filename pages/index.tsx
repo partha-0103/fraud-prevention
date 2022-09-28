@@ -28,7 +28,8 @@ import React, { useCallback, useEffect, useState } from "react";
 import { json } from "stream/consumers";
 // import the instance of the Gadget API client for this app constructed in the other file
 import { api } from "../src/api";
-import { PlanSelectorButton } from "../src/PlanSelectorButton";
+
+import useNavigationStore from "../src/hooks/useNavigation";
 
 export interface CreateCustomerDetailsInput {
   name?: (Scalars["String"] | null) | null;
@@ -76,6 +77,8 @@ const SignupSchema = Yup.object().shape({
 });
 
 const Home: NextPage = () => {
+  /* @ts-ignore */
+  const { setShowNavigation } = useNavigationStore();
   const [show, setShow] = useState(false);
   const router = useRouter();
   const [result, createCustomerDetails] = useAction(api.customerdetails.create);
@@ -124,6 +127,10 @@ const Home: NextPage = () => {
       setShow(true);
     }
   }, [shopData, customerDetailsData]);
+
+  useEffect(() => {
+    setShowNavigation(true);
+  }, []);
 
   const createCustomers = async (
     customerDetailsData: CreateCustomerDetailsInput

@@ -2,8 +2,8 @@ import create from "zustand";
 
 const useNavigationStore = create((set) => ({
   show: false,
-  increasePopulation: () =>
-    set((state: { show: boolean }) => ({ show: !state.show })),
+  setShowNavigation: (showNavigation: boolean) =>
+    set((state: { show: boolean }) => ({ show: showNavigation })),
 }));
 
 export default useNavigationStore;

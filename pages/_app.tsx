@@ -18,7 +18,6 @@ function AppContainer({ Component, pageProps }: AppProps) {
 
   /* @ts-ignore */
   const { show: showNavigation } = useNavigationStore();
-  console.log({ showNavigation });
   return (
     // wrap the application in the Gadget provider, which manages OAuthing with Shopify, creating a session with the Gadget backend, and creating an instance of the Shopify App Bridge
     // learn more at https://www.npmjs.com/package/@gadgetinc/react-shopify-app-bridge
@@ -35,7 +34,7 @@ function AppContainer({ Component, pageProps }: AppProps) {
         {/* @ts-ignore */}
         <AppProvider i18n={enTranslations}>
           <Page fullWidth>
-            <Navbar />
+            {showNavigation ? <Navbar /> : null}
             <Component {...pageProps} />
           </Page>
         </AppProvider>
