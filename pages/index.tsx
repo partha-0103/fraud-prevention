@@ -51,25 +51,21 @@ const SignupSchema = Yup.object().shape({
     .transform((value, originalValue) => {
       return originalValue.trim();
     })
-    .min(1, "Too Short!")
     .required("Required"),
   businessname: Yup.string()
     .transform((value, originalValue) => {
       return originalValue.trim();
     })
-    .min(1, "Too Short!")
     .required("Required"),
   businessurl: Yup.string()
     .transform((value, originalValue) => {
       return originalValue.trim();
     })
-    .min(1, "Too Short!")
     .required("Required"),
   phone: Yup.number()
     .transform((value, originalValue) => {
       return Number(originalValue.trim());
     })
-    .min(10, "Invalid phone no")
     .required("This field is requried"),
   email: Yup.string()
     .transform((value, originalValue) => {
