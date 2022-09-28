@@ -113,6 +113,7 @@ const Home: NextPage = () => {
   });
 
   useEffect(() => {
+    console.log(shopData, customerDetailsFetching, shopData);
     if (shopDataFetching || customerDetailsFetching) {
       return;
     }
