@@ -66,7 +66,7 @@ const SignupSchema = Yup.object().shape({
     .transform((value, originalValue) => {
       return Number(originalValue.trim());
     })
-    .required("This field is requried"),
+    .required("Requried"),
   email: Yup.string()
     .transform((value, originalValue) => {
       return originalValue.trim();

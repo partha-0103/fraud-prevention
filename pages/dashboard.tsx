@@ -36,7 +36,7 @@ const Dashboard = () => {
       <Page fullWidth title="Metrics View Of Dashboard">
         <Layout>
           <Layout.Section secondary>
-            <Card title="Total no of orders processed" sectioned>
+            <Card title="Total No of orders processed" sectioned>
               <h1 className="bold">{getTotalNoOfOrders()}</h1>
             </Card>
           </Layout.Section>
