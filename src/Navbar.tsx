@@ -7,17 +7,6 @@ const Navbar = () => {
   console.log(router);
   return (
     <div className="nav">
-      <Link href="/dashboard">
-        <div
-          className={
-            router.pathname === "/dashboard"
-              ? "nav-item active-nav"
-              : "nav-item"
-          }
-        >
-          Dasshboard |
-        </div>
-      </Link>
       <Link href="/">
         <div
           className={
@@ -36,6 +25,17 @@ const Navbar = () => {
           }
         >
           Billing
+        </div>
+      </Link>
+      <Link href="/dashboard">
+        <div
+          className={
+            router.pathname === "/dashboard"
+              ? "nav-item active-nav"
+              : "nav-item"
+          }
+        >
+          Dasshboard |
         </div>
       </Link>
     </div>
