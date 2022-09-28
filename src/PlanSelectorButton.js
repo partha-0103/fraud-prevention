@@ -28,21 +28,21 @@ export const PlanSelectorButton = (props) => {
   );
   const { data: subscriptionData } = subscriptionResult;
 
-  useEffect(() => {
-    if (!data || !subscriptionData) {
-      return;
-    }
-    const currentStore = subscriptionData.find((sub) =>
-      sub.returnUrl.includes(data.myshopifyDomain)
-    );
+  // useEffect(() => {
+  //   if (!data || !subscriptionData) {
+  //     return;
+  //   }
+  //   const currentStore = subscriptionData.find((sub) =>
+  //     sub.returnUrl.includes(data.myshopifyDomain)
+  //   );
 
-    if (currentStore) {
-      router.push("/dashboard");
-      setShow(false);
-    } else {
-      setShowSpinner(false);
-    }
-  }, [data, subscriptionData]);
+  //   if (currentStore) {
+  //     router.push("/dashboard");
+  //     setShow(false);
+  //   } else {
+  //     setShowSpinner(false);
+  //   }
+  // }, [data, subscriptionData]);
 
   if (showSpinner) {
     return <Spinner />;
