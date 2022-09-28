@@ -1,5 +1,12 @@
 import { useFindMany, useFindFirst } from "@gadgetinc/react";
-import { Card, Layout, Spinner, Page, Banner } from "@shopify/polaris";
+import {
+  Card,
+  Layout,
+  Spinner,
+  Page,
+  Banner,
+  DisplayText,
+} from "@shopify/polaris";
 import { api } from "../src/api";
 const Dashboard = () => {
   const [result, refresh] = useFindMany(api.dashboard);
@@ -37,12 +44,16 @@ const Dashboard = () => {
         <Layout>
           <Layout.Section secondary>
             <Card title="Total No of orders processed" sectioned>
-              <h1 className="bold">{getTotalNoOfOrders()}</h1>
+              <DisplayText size="extraLarge">
+                {getTotalNoOfOrders()}
+              </DisplayText>
             </Card>
           </Layout.Section>
           <Layout.Section secondary>
             <Card title="Total No of orders flagged" sectioned>
-              <h1 className="bold">{getTotalNoOFlaggedOrders()}</h1>
+              <DisplayText size="extraLarge">
+                {getTotalNoOFlaggedOrders()}
+              </DisplayText>
             </Card>
           </Layout.Section>
         </Layout>

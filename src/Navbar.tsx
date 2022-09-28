@@ -21,7 +21,7 @@ const Navbar = () => {
       <Link href="/">
         <div
           className={
-            router.pathname === "" ? "nav-item active-nav" : "nav-item"
+            router.pathname === "/" ? "nav-item active-nav" : "nav-item"
           }
         >
           Settings |
