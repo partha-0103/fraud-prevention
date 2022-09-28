@@ -48,27 +48,39 @@ export interface CreateCustomerDetailsArguments {
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
+    .transform((value, originalValue) => {
+      return originalValue.trim();
+    })
     .min(1, "Too Short!")
-    .max(50, "Too Long!")
     .required("Required")
     .matches(/^(\S+$)/g, "This field cannot contain only blankspaces"),
   businessname: Yup.string()
+    .transform((value, originalValue) => {
+      return originalValue.trim();
+    })
     .min(1, "Too Short!")
-    .max(50, "Too Long!")
     .matches(/^(\S+$)/g, "This field cannot contain only blankspaces")
     .required("Required"),
   businessurl: Yup.string()
+    .transform((value, originalValue) => {
+      return originalValue.trim();
+    })
     .min(1, "Too Short!")
-    .max(50, "Too Long!")
     .matches(/^(\S+$)/g, "This field cannot contain only blankspaces")
     .required("Required"),
   phone: Yup.number()
+    .transform((value, originalValue) => {
+      return originalValue.trim();
+    })
     .transform((value, originalValue) =>
       /\s/.test(originalValue) ? NaN : value
     )
     .min(10, "Invalid phone no")
     .required("This field is requried"),
   email: Yup.string()
+    .transform((value, originalValue) => {
+      return originalValue.trim();
+    })
     .email("Invalid email")
     .matches(/^(\S+$)/g, "This field cannot contain only blankspaces")
     .required("Required"),
