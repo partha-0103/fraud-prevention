@@ -30,19 +30,19 @@ export const PlanSelectorButton = (props) => {
 
   useEffect(() => {
     setShowSpinner(false);
-    // if (!data || !subscriptionData) {
-    //   return;
-    // }
-    // const currentStore = subscriptionData.find((sub) =>
-    //   sub.returnUrl.includes(data.myshopifyDomain)
-    // );
+    if (!data || !subscriptionData) {
+      return;
+    }
+    const currentStore = subscriptionData.find((sub) =>
+      sub.returnUrl.includes(data.myshopifyDomain)
+    );
 
-    // if (currentStore) {
-    //   router.push("/dashboard");
-    //   setShow(false);
-    // } else {
-    //   setShowSpinner(false);
-    // }
+    if (currentStore) {
+      router.push("/dashboard");
+      setShow(false);
+    } else {
+      setShowSpinner(false);
+    }
   }, [data, subscriptionData]);
 
   if (showSpinner) {
