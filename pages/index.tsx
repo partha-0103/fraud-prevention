@@ -52,21 +52,18 @@ const SignupSchema = Yup.object().shape({
       return originalValue.trim();
     })
     .min(1, "Too Short!")
-    .required("Required")
-    .matches(/^(\S+$)/g, "This field cannot contain only blankspaces"),
+    .required("Required"),
   businessname: Yup.string()
     .transform((value, originalValue) => {
       return originalValue.trim();
     })
     .min(1, "Too Short!")
-    .matches(/^(\S+$)/g, "This field cannot contain only blankspaces")
     .required("Required"),
   businessurl: Yup.string()
     .transform((value, originalValue) => {
       return originalValue.trim();
     })
     .min(1, "Too Short!")
-    .matches(/^(\S+$)/g, "This field cannot contain only blankspaces")
     .required("Required"),
   phone: Yup.number()
     .transform((value, originalValue) => {
@@ -79,7 +76,6 @@ const SignupSchema = Yup.object().shape({
       return originalValue.trim();
     })
     .email("Invalid email")
-    .matches(/^(\S+$)/g, "This field cannot contain only blankspaces")
     .required("Required"),
 });
 
