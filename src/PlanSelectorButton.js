@@ -55,8 +55,7 @@ export const PlanSelectorButton = (props) => {
           <Card sectioned title="Product Pricing Information">
             <p>USD 0.12 per order</p>
             <br></br>
-            <br></br>
-            <p>Services Included</p>
+            <h3>Services Included:</h3>
             <List type="bullet">
               <List.Item>Address Completeness Scoring</List.Item>
               <List.Item>RTO risk flagging Red/Green</List.Item>

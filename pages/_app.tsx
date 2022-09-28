@@ -3,7 +3,6 @@ import {
   Provider as GadgetProvider,
 } from "@gadgetinc/react-shopify-app-bridge";
 import { AppProvider, Page } from "@shopify/polaris";
-import { useAction, useFindFirst, useFindMany } from "@gadgetinc/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "@shopify/polaris/build/esm/styles.css";
 import enTranslations from "@shopify/polaris/locales/en.json";
@@ -12,15 +11,14 @@ import React from "react";
 import { api } from "../src/api";
 import "../styles/globals.css";
 import Navbar from "../src/Navbar";
+import useNavigationStore from "../src/hooks/useNavigation";
 
 function AppContainer({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
-  const [shopResult, refresh] = useFindFirst(api.shopifyShop, {
-    select: {
-      myshopifyDomain: true,
-    },
-  });
-  console.log(shopResult, pageProps);
+
+  /* @ts-ignore */
+  const { show: showNavigation } = useNavigationStore();
+  console.log({ showNavigation });
   return (
     // wrap the application in the Gadget provider, which manages OAuthing with Shopify, creating a session with the Gadget backend, and creating an instance of the Shopify App Bridge
     // learn more at https://www.npmjs.com/package/@gadgetinc/react-shopify-app-bridge
