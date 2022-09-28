@@ -111,14 +111,6 @@ const Home: NextPage = () => {
     },
     validationSchema: SignupSchema,
   });
-
-  useEffect(() => {
-    console.log(customerDetailsFetching, shopData);
-    if (!customerDetailsData?.length) {
-      return;
-    }
-    setShowNavigation(true);
-  }, [customerDetailsData]);
   useEffect(() => {
     const shopifyDomain = shopData?.myshopifyDomain;
     if (!customerDetailsData?.length || shopDataFetching) {
@@ -132,6 +124,7 @@ const Home: NextPage = () => {
     } else {
       setShow(true);
     }
+    setShowNavigation(true);
   }, [shopData, customerDetailsData]);
 
   const createCustomers = async (
