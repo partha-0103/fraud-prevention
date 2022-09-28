@@ -113,11 +113,11 @@ const Home: NextPage = () => {
   });
 
   useEffect(() => {
-    if (shopDataFetching) {
+    if (shopDataFetching || customerDetailsFetching) {
       return;
     }
     setShowNavigation(true);
-  }, [shopDataFetching]);
+  }, [shopDataFetching, customerDetailsFetching]);
   useEffect(() => {
     const shopifyDomain = shopData?.myshopifyDomain;
     if (!customerDetailsData?.length || shopDataFetching) {
