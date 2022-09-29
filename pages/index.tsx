@@ -124,7 +124,9 @@ const Home: NextPage = () => {
     } else {
       setShow(true);
     }
-    setShowNavigation(true);
+    if (!showNavigation) {
+      setShowNavigation(true);
+    }
   }, [shopData, customerDetailsData]);
 
   // useEffect(() => {
