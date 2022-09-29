@@ -52,7 +52,7 @@ export const PlanSelectorButton = (props) => {
     }
   }, [data, subscriptionData]);
 
-  if (showSpinner) {
+  if (showSpinner || !showNavigation) {
     return <Spinner />;
   }
 
