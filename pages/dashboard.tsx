@@ -8,8 +8,12 @@ import {
   DisplayText,
   Stack,
 } from "@shopify/polaris";
+import { useEffect } from "react";
 import { api } from "../src/api";
+import useNavigationStore from "../src/hooks/useNavigation";
 const Dashboard = () => {
+  /* @ts-ignore */
+  const { setShowNavigation, show: showNavigation } = useNavigationStore();
   const [result, refresh] = useFindMany(api.dashboard);
   const { data, error, fetching } = result;
   const [shopResult, refreshShop] = useFindFirst(api.shopifyShop, {
@@ -26,6 +30,13 @@ const Dashboard = () => {
     return data?.find((d) => d.shop === shopData?.myshopifyDomain)
       ?.flaggedorders;
   }
+
+  useEffect(() => {
+    if (!showNavigation) {
+      setShowNavigation(true);
+    }
+  }, []);
+
   if (fetching || shopDataFetching) {
     return (
       <Page>

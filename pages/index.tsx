@@ -122,10 +122,10 @@ const Home: NextPage = () => {
     if (currentDetails) {
       router.push("/payment-confirmation");
     } else {
+      if (!showNavigation) {
+        setShowNavigation(true);
+      }
       setShow(true);
-    }
-    if (!showNavigation) {
-      setShowNavigation(true);
     }
   }, [shopData, customerDetailsData]);
 

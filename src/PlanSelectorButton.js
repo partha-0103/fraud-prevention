@@ -11,7 +11,10 @@ import {
 } from "@shopify/polaris";
 import { api } from "./api";
 import { useRouter } from "next/router";
+import useNavigationStore from "../src/hooks/useNavigation";
 export const PlanSelectorButton = (props) => {
+  /* @ts-ignore */
+  const { setShowNavigation, show: showNavigation } = useNavigationStore();
   const [show, setShow] = useState(true);
   const [showSpinner, setShowSpinner] = useState(true);
   const router = useRouter();
@@ -42,6 +45,9 @@ export const PlanSelectorButton = (props) => {
       router.push("/dashboard");
       setShow(false);
     } else {
+      if (!showNavigation) {
+        setShowNavigation(true);
+      }
       setShowSpinner(false);
     }
   }, [data, subscriptionData]);
