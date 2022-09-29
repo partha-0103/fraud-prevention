@@ -124,15 +124,16 @@ const Home: NextPage = () => {
     } else {
       setShow(true);
     }
+    setShowNavigation(true);
   }, [shopData, customerDetailsData]);
 
-  useEffect(() => {
-    const shopifyDomain = shopData?.myshopifyDomain;
-    if (!shopifyDomain || showNavigation) {
-      return;
-    }
-    setShowNavigation(true);
-  }, [shopData]);
+  // useEffect(() => {
+  //   const shopifyDomain = shopData?.myshopifyDomain;
+  //   if (!shopifyDomain || showNavigation) {
+  //     return;
+  //   }
+  //   setShowNavigation(true);
+  // }, [shopData]);
 
   const createCustomers = async (
     customerDetailsData: CreateCustomerDetailsInput

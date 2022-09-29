@@ -2,7 +2,6 @@ import {
   AppType,
   Provider as GadgetProvider,
 } from "@gadgetinc/react-shopify-app-bridge";
-import { useAction, useFindFirst, useFindMany } from "@gadgetinc/react";
 import { AppProvider, Page } from "@shopify/polaris";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "@shopify/polaris/build/esm/styles.css";
@@ -16,13 +15,6 @@ import useNavigationStore from "../src/hooks/useNavigation";
 
 function AppContainer({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
-  const [customer, getCustomers] = useFindMany(api.customerdetails);
-  const {
-    data: customerDetailsData,
-    error: customerDataError,
-    fetching: customerDetailsFetching,
-  } = customer;
-  console.log({ customerDetailsData });
   /* @ts-ignore */
   const { show: showNavigation } = useNavigationStore();
   return (
