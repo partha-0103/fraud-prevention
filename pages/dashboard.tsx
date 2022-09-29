@@ -37,7 +37,7 @@ const Dashboard = () => {
     }
   }, []);
 
-  if (fetching || shopDataFetching) {
+  if (fetching || shopDataFetching || !showNavigation) {
     return (
       <Page>
         <Spinner />
