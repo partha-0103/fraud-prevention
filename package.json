@@ -12,8 +12,6 @@
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@gadget-client/bureau-fraud-prevention": "^1.3100.0",
-    "@gadget-client/fraud-fe": "^1.616.0",
-    "@gadget-client/test-fraud-app": "^1.10.0",
     "@gadgetinc/react": "^0.7.2",
     "@gadgetinc/react-shopify-app-bridge": "0.4.1",
     "@mui/material": "^5.10.7",

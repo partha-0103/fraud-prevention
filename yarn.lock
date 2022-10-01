@@ -201,20 +201,6 @@
   dependencies:
     "@gadgetinc/api-client-core" "0.9.0"
 
-"@gadget-client/fraud-fe@^1.616.0":
-  version "1.619.0"
-  resolved "https://registry.gadget.dev/npm/_/tarball/3661/6114/1686#bb6c29984c338ea3e9b83f755c1cb356642af6f4"
-  integrity sha1-u2wpmEwzjqPpuD91XByzVmQq9vQ=
-  dependencies:
-    "@gadgetinc/api-client-core" "0.9.0"
-
-"@gadget-client/test-fraud-app@^1.10.0":
-  version "1.11.0"
-  resolved "https://registry.gadget.dev/npm/_/tarball/3654/6100/1455#1709f2b2b1fbf22da67646966202c9549ff45729"
-  integrity sha1-FwnysrH78i2mdkaWYgLJVJ/0Vyk=
-  dependencies:
-    "@gadgetinc/api-client-core" "0.9.0"
-
 "@gadgetinc/api-client-core@0.9.0", "@gadgetinc/api-client-core@^0.9.0":
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/@gadgetinc/api-client-core/-/api-client-core-0.9.0.tgz#f31f51b43c4a2810f083eb0f3c3f83619a85898f"
