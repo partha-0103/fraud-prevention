@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useFindMany, useFindFirst } from "@gadgetinc/react";
 import {
   Layout,
@@ -12,7 +12,7 @@ import {
 import { api } from "./api";
 import { useRouter } from "next/router";
 import useNavigationStore from "../src/hooks/useNavigation";
-import { useNavigate } from "@gadgetinc/react-shopify-app-bridge";
+import { useGadget } from "@gadgetinc/react-shopify-app-bridge";
 
 export const PlanSelectorButton = (props) => {
   /* @ts-ignore */
@@ -28,6 +28,8 @@ export const PlanSelectorButton = (props) => {
   });
   const { data, error, fetching } = result;
   const navigate = useNavigate();
+  const { loading, appBridge, isRootFrameRequest } = useGadget();
+  console.log(appBridge);
 
   const [subscriptionResult, subscriptionRefresh] = useFindMany(
     api.shopifyAppSubscription
@@ -79,7 +81,8 @@ export const PlanSelectorButton = (props) => {
               <ButtonGroup>
                 <Button
                   onClick={() => {
-                    navigate(data?.confirmationurl);
+                    appBridge.navigate(data?.confirmationurl);
+                    // navigate(data?.confirmationurl);
                   }}
                   disabled={fetching}
                   primary
