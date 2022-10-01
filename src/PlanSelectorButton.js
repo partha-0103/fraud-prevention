@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { useFindMany, useFindFirst } from "@gadgetinc/react";
+import { useFindMany, useFindFirst, useNavigate } from "@gadgetinc/react";
 import {
   Layout,
   Card,
@@ -12,13 +12,11 @@ import {
 import { api } from "./api";
 import { useRouter } from "next/router";
 import useNavigationStore from "../src/hooks/useNavigation";
-import { useNavigate } from "@shopify/app-bridge-react";
 
 export const PlanSelectorButton = (props) => {
   /* @ts-ignore */
   const { setShowNavigation, show: showNavigation } = useNavigationStore();
   const [show, setShow] = useState(true);
-  const navigate = useNavigate();
   const [showSpinner, setShowSpinner] = useState(true);
   const router = useRouter();
   const [result, refresh] = useFindFirst(api.shopifyShop, {
@@ -28,6 +26,7 @@ export const PlanSelectorButton = (props) => {
     },
   });
   const { data, error, fetching } = result;
+  const navigate = useNavigate();
 
   const [subscriptionResult, subscriptionRefresh] = useFindMany(
     api.shopifyAppSubscription
@@ -54,9 +53,6 @@ export const PlanSelectorButton = (props) => {
       setShowSpinner(false);
     }
   }, [data, subscriptionData]);
-  const subscribe = useCallback((plan) => {
-    navigate(data?.confirmationurl);
-  });
 
   if (showSpinner || !showNavigation) {
     return <Spinner />;
@@ -80,7 +76,13 @@ export const PlanSelectorButton = (props) => {
             <br></br>
             {show ? (
               <ButtonGroup>
-                <Button onClick={subscribe} disabled={fetching} primary>
+                <Button
+                  onClick={() => {
+                    navigate(data?.confirmationurl);
+                  }}
+                  disabled={fetching}
+                  primary
+                >
                   Accept
                 </Button>
               </ButtonGroup>
