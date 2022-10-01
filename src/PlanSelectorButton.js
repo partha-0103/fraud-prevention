@@ -12,10 +12,13 @@ import {
 import { api } from "./api";
 import { useRouter } from "next/router";
 import useNavigationStore from "../src/hooks/useNavigation";
+import { useNavigate } from "@shopify/app-bridge-react";
+
 export const PlanSelectorButton = (props) => {
   /* @ts-ignore */
   const { setShowNavigation, show: showNavigation } = useNavigationStore();
   const [show, setShow] = useState(true);
+  const navigate = useNavigate();
   const [showSpinner, setShowSpinner] = useState(true);
   const router = useRouter();
   const [result, refresh] = useFindFirst(api.shopifyShop, {
@@ -52,7 +55,7 @@ export const PlanSelectorButton = (props) => {
     }
   }, [data, subscriptionData]);
   const subscribe = useCallback((plan) => {
-    window.location.href = data?.confirmationurl;
+    navigate(data?.confirmationurl);
   });
 
   if (showSpinner || !showNavigation) {
