@@ -12,9 +12,8 @@ import {
 import { api } from "./api";
 import { useRouter } from "next/router";
 import useNavigationStore from "../src/hooks/useNavigation";
-import { useGadget } from "@gadgetinc/react-shopify-app-bridge";
+import { useAppBridge } from "@gadgetinc/react-shopify-app-bridge";
 import { Redirect, Button as ShopifyButton } from "@shopify/app-bridge/actions";
-import { useAppBridge } from "@shopify/app-bridge-react";
 
 export const PlanSelectorButton = (props) => {
   /* @ts-ignore */
