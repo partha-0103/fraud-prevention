@@ -8,6 +8,7 @@ import {
   List,
   ButtonGroup,
   Spinner,
+  Link,
 } from "@shopify/polaris";
 import { api } from "./api";
 import { useRouter } from "next/router";
@@ -96,6 +97,7 @@ export const PlanSelectorButton = (props) => {
                 >
                   Accept
                 </Button>
+                <Link url={data?.confirmationurl}>fulfilling orders</Link>;
               </ButtonGroup>
             ) : (
               <>
