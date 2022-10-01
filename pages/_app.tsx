@@ -2,6 +2,7 @@ import {
   AppType,
   Provider as GadgetProvider,
 } from "@gadgetinc/react-shopify-app-bridge";
+import { Provider as SHOPIFYPROVIDER } from "@shopify/app-bridge-react";
 import { AppProvider, Page } from "@shopify/polaris";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "@shopify/polaris/build/esm/styles.css";
@@ -21,6 +22,12 @@ function AppContainer({ Component, pageProps }: AppProps) {
     // wrap the application in the Gadget provider, which manages OAuthing with Shopify, creating a session with the Gadget backend, and creating an instance of the Shopify App Bridge
     // learn more at https://www.npmjs.com/package/@gadgetinc/react-shopify-app-bridge
     <QueryClientProvider client={queryClient}>
+      <SHOPIFYPROVIDER
+        config={{
+          apiKey: process.env.NEXT_PUBLIC_SHOPIFY_API_KEY!,
+          host: "abcd",
+        }}
+      ></SHOPIFYPROVIDER>
       <GadgetProvider
         type={AppType.Embedded}
         shopifyApiKey={process.env.NEXT_PUBLIC_SHOPIFY_API_KEY!}
