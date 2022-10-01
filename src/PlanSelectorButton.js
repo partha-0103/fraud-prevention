@@ -98,7 +98,7 @@ export const PlanSelectorButton = (props) => {
                     // navigate(data?.confirmationurl);
                     Redirect.create(appBridge).dispatch(
                       Redirect.Action.REMOTE,
-                      "https://gadget.dev"
+                      data?.confirmationurl
                     );
                   }}
                   disabled={fetching}
