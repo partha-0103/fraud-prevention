@@ -14,6 +14,7 @@ import { api } from "./api";
 import { useRouter } from "next/router";
 import useNavigationStore from "../src/hooks/useNavigation";
 import { useGadget } from "@gadgetinc/react-shopify-app-bridge";
+import { Button as ShopifyButton, Redirect } from "@shopify/app-bridge/actions";
 
 export const PlanSelectorButton = (props) => {
   /* @ts-ignore */
@@ -29,7 +30,7 @@ export const PlanSelectorButton = (props) => {
   });
   const { data, error, fetching } = result;
   const { appBridge } = useGadget();
-  // const redirectButton = Button.create(appBridge, { label: "Accept" });
+  const redirectButton = ShopifyButton.create(appBridge, { label: "Accept" });
   // const navigate = appBridge.useNavigate();
   // console.log(navigate);
   // const navigate = useNavigate();
@@ -65,9 +66,9 @@ export const PlanSelectorButton = (props) => {
   if (showSpinner || !showNavigation) {
     return <Spinner />;
   }
-  // redirectButton.subscribe(ShopifyButton.Action.CLICK, () => {
-  //   appBridge.dispatch(Redirect.Action.REMOTE({ path: data?.confirmationurl }));
-  // });
+  redirectButton.subscribe(ShopifyButton.Action.CLICK, () => {
+    appBridge.dispatch(Redirect.Action.REMOTE({ path: data?.confirmationurl }));
+  });
   return (
     <Page fullWidth>
       <Layout>
@@ -88,7 +89,7 @@ export const PlanSelectorButton = (props) => {
               <ButtonGroup>
                 <Button
                   onClick={() => {
-                    appBridge.navigate(data?.confirmationurl);
+                    // appBridge.navigate(data?.confirmationurl);
                     // navigate(data?.confirmationurl);
                   }}
                   disabled={fetching}
