@@ -153,6 +153,7 @@ const Home: NextPage = () => {
     }
   };
   const { loading, appBridge } = useGadget();
+  const navigate = useNavigate();
   // Loading or app bridge has not been set up yet
   if (
     loading ||
