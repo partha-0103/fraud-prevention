@@ -12,7 +12,7 @@ import {
 import { api } from "./api";
 import { useRouter } from "next/router";
 import useNavigationStore from "../src/hooks/useNavigation";
-import { useAppBridge } from "@gadgetinc/react-shopify-app-bridge";
+import { useGadget } from "@gadgetinc/react-shopify-app-bridge";
 import { Redirect, Button as ShopifyButton } from "@shopify/app-bridge/actions";
 
 export const PlanSelectorButton = (props) => {
@@ -32,8 +32,9 @@ export const PlanSelectorButton = (props) => {
   // const redirectButton = Button.create(appBridge, { label: "Accept" });
   // const navigate = appBridge.useNavigate();
   // console.log(navigate);
-  const app = useAppBridge();
+  const app = useGadget();
   console.log(app, "appBridge");
+  console.log(app.appBridge, "bridge");
   const [subscriptionResult, subscriptionRefresh] = useFindMany(
     api.shopifyAppSubscription
   );
