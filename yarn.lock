@@ -496,7 +496,7 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.2.0.tgz#8be36a1f66f3265389e90b5f9c9962146758f728"
   integrity sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==
 
-"@shopify/app-bridge-react@^3.1.1":
+"@shopify/app-bridge-react@^3.3.2":
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/@shopify/app-bridge-react/-/app-bridge-react-3.3.2.tgz#521af6ee7f9b8cfa40814f6509fcd5e2d6633eaa"
   integrity sha512-18JlI8Rty5b5yvulGWe8v3R+o0e7tvK4xHnlvGxaLksnJKSXQZc73W1HyS/P2hEp3NYsgQ4pgSozZs6dxt/aLQ==

@@ -14,6 +14,12 @@ import { api } from "./api";
 import { useRouter } from "next/router";
 import useNavigationStore from "../src/hooks/useNavigation";
 import { useGadget } from "@gadgetinc/react-shopify-app-bridge";
+// import and use Shopify's react components like you might in other Shopify app
+import {
+  Button as ButtonAction,
+  Redirect,
+  TitleBar,
+} from "@shopify/app-bridge/actions";
 
 export const PlanSelectorButton = (props) => {
   /* @ts-ignore */
@@ -90,6 +96,10 @@ export const PlanSelectorButton = (props) => {
                   onClick={() => {
                     // appBridge.navigate(data?.confirmationurl);
                     // navigate(data?.confirmationurl);
+                    Redirect.create(appBridge).dispatch(
+                      Redirect.Action.REMOTE,
+                      "https://gadget.dev"
+                    );
                   }}
                   disabled={fetching}
                   primary

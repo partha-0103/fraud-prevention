@@ -3,13 +3,6 @@ import { Scalars } from "@gadget-client/bureau-fraud-prevention";
 import { useRouter } from "next/router";
 import { useAction, useFindFirst, useFindMany } from "@gadgetinc/react";
 // import the Gadget<->Shopify bindings that manage the auth process with Shopify
-import { useGadget } from "@gadgetinc/react-shopify-app-bridge";
-// import and use Shopify's react components like you might in other Shopify app
-import {
-  Button as ButtonAction,
-  Redirect,
-  TitleBar,
-} from "@shopify/app-bridge/actions";
 import {
   Button,
   Card,
@@ -26,9 +19,9 @@ import axios from "axios";
 import type { NextPage } from "next";
 import React, { useCallback, useEffect, useState } from "react";
 import { json } from "stream/consumers";
+import { useGadget } from "@gadgetinc/react-shopify-app-bridge";
 // import the instance of the Gadget API client for this app constructed in the other file
 import { api } from "../src/api";
-import { useNavigate } from "@shopify/app-bridge-react";
 
 import useNavigationStore from "../src/hooks/useNavigation";
 
@@ -153,7 +146,6 @@ const Home: NextPage = () => {
     }
   };
   const { loading, appBridge } = useGadget();
-  const navigate = useNavigate();
   // Loading or app bridge has not been set up yet
   if (
     loading ||
