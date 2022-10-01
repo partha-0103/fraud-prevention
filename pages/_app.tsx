@@ -25,7 +25,7 @@ function AppContainer({ Component, pageProps }: AppProps) {
       <SHOPIFYPROVIDER
         config={{
           apiKey: process.env.NEXT_PUBLIC_SHOPIFY_API_KEY!,
-          host: "abcd",
+          host: "https://dev--fraud-prevention.netlify.app/",
         }}
       >
         <GadgetProvider
