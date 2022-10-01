@@ -194,7 +194,7 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@gadget-client/bureau-fraud-prevention@^1.2752.0":
+"@gadget-client/bureau-fraud-prevention@^1.3100.0":
   version "1.3100.0"
   resolved "https://registry.gadget.dev/npm/_/tarball/3244/5313/1744#70f9bf28b7493a57fd3bbd407bc73be5000b7188"
   integrity sha1-cPm/KLdJOlf9O71Ae8c75QALcYg=
@@ -259,7 +259,7 @@
     crypto-js "^4.1.1"
     lodash "^4.17.21"
 
-"@gadgetinc/react@^0.7.1":
+"@gadgetinc/react@^0.7.2":
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/@gadgetinc/react/-/react-0.7.2.tgz#6b17ed922f021ece06950e505595f2a982e13857"
   integrity sha512-6Ak9HVfxXUrF1lDwYXT9ICycayDUXWS7JsblepCbslwelBC3F9ar8aNsDvbbyNfo3DikugvpidF5pDLZV2+vNg==
