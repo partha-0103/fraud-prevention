@@ -30,8 +30,8 @@ export const PlanSelectorButton = (props) => {
   const { data, error, fetching } = result;
   const { loading, appBridge, isRootFrameRequest } = useGadget();
   // const redirectButton = Button.create(appBridge, { label: "Accept" });
-  const navigate = appBridge.useNavigate();
-  console.log(navigate);
+  // const navigate = appBridge.useNavigate();
+  // console.log(navigate);
   console.log(appBridge, "appBridge");
   const [subscriptionResult, subscriptionRefresh] = useFindMany(
     api.shopifyAppSubscription
