@@ -33,7 +33,7 @@ export const PlanSelectorButton = (props) => {
   // console.log(navigate);
   // const navigate = useNavigate();
   // const app = useGadget();
-  console.log(appBridge);
+  console.log(appBridge.hooks);
   // console.log(app.appBridge, "bridge");
   const [subscriptionResult, subscriptionRefresh] = useFindMany(
     api.shopifyAppSubscription
