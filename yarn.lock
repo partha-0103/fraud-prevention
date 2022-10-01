@@ -218,37 +218,20 @@
     lodash.isequal "^4.5.0"
     ws "^8.2.2"
 
-"@gadgetinc/api-client-core@^0.10.0":
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/@gadgetinc/api-client-core/-/api-client-core-0.10.0.tgz#aea2d2d18a0e615678c99e669dfe0591b98424b9"
-  integrity sha512-rrlfzztOuZ4fw/vR0HCQOg18dtcnOdZQ0xuTbsqGoJYPuKgzXB8NUO5V6WfeqO1hi+QMVc8upFSMhMNNeyg9cQ==
+"@gadgetinc/react-shopify-app-bridge@0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@gadgetinc/react-shopify-app-bridge/-/react-shopify-app-bridge-0.3.0.tgz#541efc1fee4d78bfd0efdfcc5fb0a9afadde15d9"
+  integrity sha512-qXyQRnuGC3YXfkGzkzWt7ETOHd2Vc6ASy/QA6p+WCTrf/WfNUGGT/0XL8kPDhBVa3qIohaY5INuUo25XY55xvg==
   dependencies:
-    "@opentelemetry/api" "^1.0.4"
-    "@urql/core" "^3.0.1"
-    "@urql/exchange-multipart-fetch" "^1.0.0"
-    cross-fetch "^3.0.6"
-    gql-query-builder "^3.6.0"
-    graphql "^15.5.0"
-    graphql-ws "^5.5.5"
-    isomorphic-ws "^4.0.1"
-    lodash.clonedeep "^4.5.0"
-    lodash.isequal "^4.5.0"
-    ws "^8.2.2"
-
-"@gadgetinc/react-shopify-app-bridge@0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@gadgetinc/react-shopify-app-bridge/-/react-shopify-app-bridge-0.4.1.tgz#a96e1da42942092d97b09466738d58973c3bc399"
-  integrity sha512-uD9gO8Zb/psI43Fpv/oJ/FOzaHeUWz/u6TE3x84layxmD2M0uB9F1MntXzEzN+avBE6A58mLv1B2mFksBcrR9g==
-  dependencies:
-    "@gadgetinc/api-client-core" "^0.10.0"
+    "@gadgetinc/api-client-core" "^0.9.0"
     "@shopify/app-bridge-utils" "^3.1.1"
     crypto-js "^4.1.1"
     lodash "^4.17.21"
 
-"@gadgetinc/react@^0.7.2":
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/@gadgetinc/react/-/react-0.7.2.tgz#6b17ed922f021ece06950e505595f2a982e13857"
-  integrity sha512-6Ak9HVfxXUrF1lDwYXT9ICycayDUXWS7JsblepCbslwelBC3F9ar8aNsDvbbyNfo3DikugvpidF5pDLZV2+vNg==
+"@gadgetinc/react@0.7.1":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@gadgetinc/react/-/react-0.7.1.tgz#01a363be9014813c775f2e539fc957adffc65717"
+  integrity sha512-cYB0kRpbHrygW0tVsKjTEZnBF+q7W7PSN2913Iuh162Ac7iu61yHaJupCFhwM/CCWXVHVrhAcRlKeHF0XFmbmw==
   dependencies:
     "@gadgetinc/api-client-core" "^0.9.0"
     deep-equal "^2.0.5"
