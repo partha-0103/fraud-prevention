@@ -51,6 +51,9 @@ export const PlanSelectorButton = (props) => {
       setShowSpinner(false);
     }
   }, [data, subscriptionData]);
+  const subscribe = useCallback((plan) => {
+    window.location.href = data?.confirmationurl;
+  });
 
   if (showSpinner || !showNavigation) {
     return <Spinner />;
@@ -74,13 +77,7 @@ export const PlanSelectorButton = (props) => {
             <br></br>
             {show ? (
               <ButtonGroup>
-                <Button
-                  onClick={() => {
-                    window.location.href = data?.confirmationurl;
-                  }}
-                  disabled={fetching}
-                  primary
-                >
+                <Button onClick={() => subscribe} disabled={fetching} primary>
                   Accept
                 </Button>
               </ButtonGroup>
