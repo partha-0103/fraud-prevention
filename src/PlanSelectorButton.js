@@ -27,7 +27,6 @@ export const PlanSelectorButton = (props) => {
     },
   });
   const { data, error, fetching } = result;
-  const navigate = useNavigate();
   const { loading, appBridge, isRootFrameRequest } = useGadget();
   console.log(appBridge);
 
