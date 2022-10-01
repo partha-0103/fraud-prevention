@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { useFindMany, useFindFirst, useNavigate } from "@gadgetinc/react";
+import { useFindMany, useFindFirst } from "@gadgetinc/react";
 import {
   Layout,
   Card,
@@ -12,6 +12,7 @@ import {
 import { api } from "./api";
 import { useRouter } from "next/router";
 import useNavigationStore from "../src/hooks/useNavigation";
+import { useNavigate } from "@gadgetinc/react-shopify-app-bridge";
 
 export const PlanSelectorButton = (props) => {
   /* @ts-ignore */
