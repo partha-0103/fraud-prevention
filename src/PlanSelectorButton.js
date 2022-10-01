@@ -87,17 +87,15 @@ export const PlanSelectorButton = (props) => {
             {show ? (
               <ButtonGroup>
                 <Button
-                  // onClick={() => {
-                  //   appBridge.navigate(data?.confirmationurl);
-                  //   // navigate(data?.confirmationurl);
-                  // }}
-                  url={data?.confirmationurl}
+                  onClick={() => {
+                    appBridge.navigate(data?.confirmationurl);
+                    // navigate(data?.confirmationurl);
+                  }}
                   disabled={fetching}
                   primary
                 >
                   Accept
                 </Button>
-                <Link url={data?.confirmationurl}>fulfilling orders</Link>;
               </ButtonGroup>
             ) : (
               <>
