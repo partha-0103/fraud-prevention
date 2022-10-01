@@ -74,16 +74,7 @@ export const PlanSelectorButton = (props) => {
             <br></br>
             {show ? (
               <ButtonGroup>
-                <Button
-                  onClick={() => {
-                    window.open(data?.confirmationurl);
-                    window.close();
-                  }}
-                  disabled={fetching}
-                  primary
-                >
-                  Accept
-                </Button>
+                <a href="data?.confirmationurl">Accept</a>
               </ButtonGroup>
             ) : (
               <>
