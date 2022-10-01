@@ -28,6 +28,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { json } from "stream/consumers";
 // import the instance of the Gadget API client for this app constructed in the other file
 import { api } from "../src/api";
+import { useNavigate } from "@shopify/app-bridge-react";
 
 import useNavigationStore from "../src/hooks/useNavigation";
 
