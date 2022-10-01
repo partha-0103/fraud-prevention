@@ -27,24 +27,25 @@ function AppContainer({ Component, pageProps }: AppProps) {
           apiKey: process.env.NEXT_PUBLIC_SHOPIFY_API_KEY!,
           host: "abcd",
         }}
-      ></SHOPIFYPROVIDER>
-      <GadgetProvider
-        type={AppType.Embedded}
-        shopifyApiKey={process.env.NEXT_PUBLIC_SHOPIFY_API_KEY!}
-        api={api}
       >
-        {/* 
-      Wrap the application in the Shopify Polaris app provider, which makes Polaris components like Button and Card work.
-      Learn more about Polaris at https://www.npmjs.com/package/@shopify/polaris
-      */}
-        {/* @ts-ignore */}
-        <AppProvider i18n={enTranslations}>
-          <Page fullWidth>
-            {showNavigation ? <Navbar /> : null}
-            <Component {...pageProps} />
-          </Page>
-        </AppProvider>
-      </GadgetProvider>
+        <GadgetProvider
+          type={AppType.Embedded}
+          shopifyApiKey={process.env.NEXT_PUBLIC_SHOPIFY_API_KEY!}
+          api={api}
+        >
+          {/* 
+    Wrap the application in the Shopify Polaris app provider, which makes Polaris components like Button and Card work.
+    Learn more about Polaris at https://www.npmjs.com/package/@shopify/polaris
+    */}
+          {/* @ts-ignore */}
+          <AppProvider i18n={enTranslations}>
+            <Page fullWidth>
+              {showNavigation ? <Navbar /> : null}
+              <Component {...pageProps} />
+            </Page>
+          </AppProvider>
+        </GadgetProvider>
+      </SHOPIFYPROVIDER>
     </QueryClientProvider>
   );
 }
