@@ -77,7 +77,7 @@ export const PlanSelectorButton = (props) => {
             <br></br>
             {show ? (
               <ButtonGroup>
-                <Button onClick={() => subscribe} disabled={fetching} primary>
+                <Button onClick={subscribe} disabled={fetching} primary>
                   Accept
                 </Button>
               </ButtonGroup>
