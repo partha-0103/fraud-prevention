@@ -2,7 +2,6 @@ import {
   AppType,
   Provider as GadgetProvider,
 } from "@gadgetinc/react-shopify-app-bridge";
-import { Provider as SHOPIFYPROVIDER } from "@shopify/app-bridge-react";
 import { AppProvider, Page } from "@shopify/polaris";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "@shopify/polaris/build/esm/styles.css";
@@ -22,30 +21,23 @@ function AppContainer({ Component, pageProps }: AppProps) {
     // wrap the application in the Gadget provider, which manages OAuthing with Shopify, creating a session with the Gadget backend, and creating an instance of the Shopify App Bridge
     // learn more at https://www.npmjs.com/package/@gadgetinc/react-shopify-app-bridge
     <QueryClientProvider client={queryClient}>
-      <SHOPIFYPROVIDER
-        config={{
-          apiKey: process.env.NEXT_PUBLIC_SHOPIFY_API_KEY!,
-          host: "https://dev--fraud-prevention.netlify.app/",
-        }}
+      <GadgetProvider
+        type={AppType.Embedded}
+        shopifyApiKey={process.env.NEXT_PUBLIC_SHOPIFY_API_KEY!}
+        api={api}
       >
-        <GadgetProvider
-          type={AppType.Embedded}
-          shopifyApiKey={process.env.NEXT_PUBLIC_SHOPIFY_API_KEY!}
-          api={api}
-        >
-          {/* 
-    Wrap the application in the Shopify Polaris app provider, which makes Polaris components like Button and Card work.
-    Learn more about Polaris at https://www.npmjs.com/package/@shopify/polaris
-    */}
-          {/* @ts-ignore */}
-          <AppProvider i18n={enTranslations}>
-            <Page fullWidth>
-              {showNavigation ? <Navbar /> : null}
-              <Component {...pageProps} />
-            </Page>
-          </AppProvider>
-        </GadgetProvider>
-      </SHOPIFYPROVIDER>
+        {/* 
+      Wrap the application in the Shopify Polaris app provider, which makes Polaris components like Button and Card work.
+      Learn more about Polaris at https://www.npmjs.com/package/@shopify/polaris
+      */}
+        {/* @ts-ignore */}
+        <AppProvider i18n={enTranslations}>
+          <Page fullWidth>
+            {showNavigation ? <Navbar /> : null}
+            <Component {...pageProps} />
+          </Page>
+        </AppProvider>
+      </GadgetProvider>
     </QueryClientProvider>
   );
 }
