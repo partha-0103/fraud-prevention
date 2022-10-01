@@ -13,6 +13,7 @@ import { api } from "./api";
 import { useRouter } from "next/router";
 import useNavigationStore from "../src/hooks/useNavigation";
 import { useGadget } from "@gadgetinc/react-shopify-app-bridge";
+import { Redirect, Button as ShopifyButton } from "@shopify/app-bridge/actions";
 
 export const PlanSelectorButton = (props) => {
   /* @ts-ignore */
@@ -28,8 +29,10 @@ export const PlanSelectorButton = (props) => {
   });
   const { data, error, fetching } = result;
   const { loading, appBridge, isRootFrameRequest } = useGadget();
-  console.log(appBridge);
-
+  // const redirectButton = Button.create(appBridge, { label: "Accept" });
+  const navigate = appBridge.useNavigate();
+  console.log(navigate);
+  console.log(appBridge, "appBridge");
   const [subscriptionResult, subscriptionRefresh] = useFindMany(
     api.shopifyAppSubscription
   );
@@ -59,7 +62,9 @@ export const PlanSelectorButton = (props) => {
   if (showSpinner || !showNavigation) {
     return <Spinner />;
   }
-
+  // redirectButton.subscribe(ShopifyButton.Action.CLICK, () => {
+  //   appBridge.dispatch(Redirect.Action.REMOTE({ path: data?.confirmationurl }));
+  // });
   return (
     <Page fullWidth>
       <Layout>
